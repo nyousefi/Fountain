@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Fountain' target in the 'Fountain' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
