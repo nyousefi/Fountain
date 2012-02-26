@@ -73,11 +73,24 @@
             textToWrite = [NSString stringWithFormat:@"=%@", element.elementText];
         }        
         else if ([element.elementType isEqualToString:@"Scene Heading"]) {
-            if (!script.suppressSceneNumbers && element.sceneNumber) {
-                textToWrite = [NSString stringWithFormat:@"%@ #%@#", element.elementText, element.sceneNumber];
+            textToWrite = element.elementText;
+
+            /*
+             We need to determine if the scene heading was a forced scene 
+             heading, and if it was, we'll add a dot to the front of the text.
+             This is most easily done by checking to see if the text still
+             matches the SCENE_HEADER_PATTERN. Because we removed the preceeding
+             dot when in the parser, forced scene headings won't match the
+             original regular expression, while non-forced (unaltered) scene
+             headings will.
+             */            
+            if (![[NSString stringWithFormat:@"\n%@\n", element.elementText] isMatchedByRegex:SCENE_HEADER_PATTERN]) {
+                textToWrite = [NSString stringWithFormat:@".%@", textToWrite];
             }
-            else {
-                textToWrite = element.elementText;
+            
+            // Append a scene number if needed
+            if (!script.suppressSceneNumbers && element.sceneNumber) {
+                textToWrite = [NSString stringWithFormat:@"%@ #%@#", textToWrite, element.sceneNumber];
             }
         }
         else if ([element.elementType isEqualToString:@"Page Break"]) {

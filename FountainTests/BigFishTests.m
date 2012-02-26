@@ -97,7 +97,7 @@
 
 - (void)testTransitions
 {
-    NSInteger indexes[] = {2};
+    NSInteger indexes[] = {209};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];

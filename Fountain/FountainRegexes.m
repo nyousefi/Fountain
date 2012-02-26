@@ -35,7 +35,7 @@ NSString * const MULTI_LINE_ACTION_PATTERN  = @"\n{2}(([^a-z\\n:]+?[\\.\\?,\\s!\
 NSString * const CHARACTER_CUE_PATTERN      = @"(?<=\\n)([ \\t]*[^<>a-z\\s\\/\\n][^<>a-z:!\\?\\n]*[^<>a-z\\(!\\?:,\\n\\.][ \\t]?)\\n{1}";
 NSString * const DIALOGUE_PATTERN           = @"(<(Character|Parenthetical)>[^<>\\n]+<\\/(Character|Parenthetical)>)([^<>]*?)(?=\\n{2}|\\n{1}<Parenthetical>)";
 NSString * const PARENTHETICAL_PATTERN      = @"(\\([^<>]*?\\)[\\s]?)\n";
-NSString * const TRANSITION_PATTERN         = @"\\n([\\*_]*([^<>\\na-z]*TO:|FADE IN:|FADE TO BLACK\\.|FADE OUT\\.|CUT TO BLACK\\.)[\\*_]*)\\n";
+NSString * const TRANSITION_PATTERN         = @"\\n([\\*_]*([^<>\\na-z]*TO:|FADE TO BLACK\\.|FADE OUT\\.|CUT TO BLACK\\.)[\\*_]*)\\n";
 NSString * const FORCED_TRANSITION_PATTERN  = @"\\n((&gt;|>)\\s*[^<>\\n]+)\\n";     // need to look for &gt; pattern because we run this regex against marked up content
 NSString * const PAGE_BREAK_PATTERN         = @"(?<=\\n)(\\s*[\\=\\-\\_]{3,8}\\s*)\\n{1}";
 NSString * const CLEANUP_PATTERN            = @"<Action>\\s*<\\/Action>";

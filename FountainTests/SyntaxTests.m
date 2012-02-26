@@ -63,11 +63,21 @@
 
 - (void)testTransitions
 {
-    NSInteger indexes[] = {0, 9};
+    NSInteger indexes[] = {9};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
         STAssertEqualObjects(element.elementType, @"Transition", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
+    }
+}
+
+- (void)testForcedSceneHeadings
+{
+    NSInteger indexes[] = {18};
+    NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
+    for (int i=0; i < maxIndexes; i++) {
+        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        STAssertEqualObjects(element.elementType, @"Scene Heading", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
 
