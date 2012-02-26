@@ -70,7 +70,8 @@
     // Sanitize < and > chars for conversion to the markup
     [scriptContent replaceOccurrencesOfString:@"<" withString:@"&lt;" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [scriptContent length])];
     [scriptContent replaceOccurrencesOfString:@">" withString:@"&gt;" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [scriptContent length])];
-    
+    [scriptContent replaceOccurrencesOfString:@"..." withString:@"::trip::" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [scriptContent length])];
+
     // 2nd pass - Regexes
     // Blast the script with regexes. 
     // Make sure pattern and template regexes match up!
@@ -129,7 +130,8 @@
         NSMutableString *cleanedText = [NSMutableString stringWithString:[elementText objectAtIndex:i]];
         [cleanedText replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [cleanedText length])];
         [cleanedText replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [cleanedText length])];
-        
+        [cleanedText replaceOccurrencesOfString:@"::trip::" withString:@"..." options:NSCaseInsensitiveSearch range:NSMakeRange(0, [cleanedText length])];
+
         // Deal with scene numbers if we are in a scene heading
         NSString *sceneNumber = nil;
         NSString *fullSceneNumberText = nil;
