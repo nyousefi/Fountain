@@ -73,12 +73,12 @@
 
 - (void)testForcedSceneHeadings
 {
-    NSInteger indexes[] = {18};
-    NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
-    for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
-        STAssertEqualObjects(element.elementType, @"Scene Heading", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
-    }
+    FNElement *forcedSceneHeading = [self.script.elements objectAtIndex:18];
+    STAssertEqualObjects(forcedSceneHeading.elementType, @"Scene Heading", @"Index %d: [%@] %@", 18, forcedSceneHeading.elementType, forcedSceneHeading.elementText);
+    
+    FNElement *notSceneHeading = [self.script.elements objectAtIndex:19];
+    STAssertEqualObjects(notSceneHeading.elementType, @"Action", @"Index %d: [%@] %@", 19, notSceneHeading.elementType, notSceneHeading.elementText);
+
 }
 
 @end
