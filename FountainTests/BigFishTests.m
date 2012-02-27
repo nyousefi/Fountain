@@ -67,7 +67,7 @@
 
 - (void)testCharacters
 {
-    NSInteger indexes[] = {6, 9, 13, 19};
+    NSInteger indexes[] = {6, 9, 13, 19, 39};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
