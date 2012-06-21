@@ -80,5 +80,50 @@
     STAssertEqualObjects(expectedString, [script stringFromTitlePage], nil);
 }
 
+- (void)testElementDescription
+{
+    NSString *string = @"FADE IN:\n\nINT. HOUSE - DAY\n\nMAN\nI'm in the house.\n\n> The end. <";
+    [script loadString:string];
+    NSArray *elements = script.elements;
+    
+    NSString *actualString;
+    NSString *expectedString;
+    
+    // You need to call -description in order for the tests to work. If you omit the -description the tests will fail,
+    // but the output will appear to be correct. I'm guessing this is because of how STAssertEqualObjects is doing the
+    // checking. I don't care enough to investigate further.
+    actualString = [[elements objectAtIndex:0] description];
+    expectedString = @"Action: FADE IN:";
+    STAssertEqualObjects(actualString, expectedString, nil);
+    
+    actualString = [[elements objectAtIndex:1] description];
+    expectedString = @"Scene Heading: INT. HOUSE - DAY";
+    STAssertEqualObjects(actualString, expectedString, nil);
+
+    actualString = [[elements objectAtIndex:2] description];
+    expectedString = @"Character: MAN";
+    STAssertEqualObjects(actualString, expectedString, nil);
+
+    actualString = [[elements objectAtIndex:3] description];
+    expectedString = @"Dialogue: I'm in the house.";
+    STAssertEqualObjects(actualString, expectedString, nil);
+
+    actualString = [[elements objectAtIndex:4] description];
+    expectedString = @"Action (centered): The end.";
+    STAssertEqualObjects(actualString, expectedString, nil);
+}
+
+- (void)testScriptDescription
+{
+    NSString *string = @"FADE IN:\n\nINT. HOUSE - DAY\n\nMAN\nI'm in the house.\n\n> The end. <";
+    [script loadString:string];
+    
+    // You need to call -description in order for the tests to work. If you omit the -description the tests will fail,
+    // but the output will appear to be correct. I'm guessing this is because of how STAssertEqualObjects is doing the
+    // checking. I don't care enough to investigate further.
+    NSString *actualString = [script description];
+    NSString *expectedString = string;
+    STAssertEqualObjects(actualString, expectedString, nil);
+}
 
 @end

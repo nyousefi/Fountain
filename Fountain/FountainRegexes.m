@@ -37,6 +37,7 @@ NSString * const DIALOGUE_PATTERN           = @"(<(Character|Parenthetical)>[^<>
 NSString * const PARENTHETICAL_PATTERN      = @"(\\([^<>]*?\\)[\\s]?)\n";
 NSString * const TRANSITION_PATTERN         = @"\\n([\\*_]*([^<>\\na-z]*TO:|FADE TO BLACK\\.|FADE OUT\\.|CUT TO BLACK\\.)[\\*_]*)\\n";
 NSString * const FORCED_TRANSITION_PATTERN  = @"\\n((&gt;|>)\\s*[^<>\\n]+)\\n";     // need to look for &gt; pattern because we run this regex against marked up content
+NSString * const FALSE_TRANSITION_PATTERN  = @"\\n((&gt;|>)\\s*[^<>\\n]+(&lt;\\s*))\\n";     // need to look for &gt; pattern because we run this regex against marked up content
 NSString * const PAGE_BREAK_PATTERN         = @"(?<=\\n)(\\s*[\\=\\-\\_]{3,8}\\s*)\\n{1}";
 NSString * const CLEANUP_PATTERN            = @"<Action>\\s*<\\/Action>";
 NSString * const FIRST_LINE_ACTION_PATTERN  = @"^\\n\\n([^<>\\n#]*?)\\n";
@@ -53,6 +54,7 @@ NSString * const DIALOGUE_TEMPLATE          = @"$1<Dialogue>$4</Dialogue>";
 NSString * const PARENTHETICAL_TEMPLATE     = @"<Parenthetical>$1</Parenthetical>";
 NSString * const TRANSITION_TEMPLATE        = @"\n<Transition>$1</Transition>";
 NSString * const FORCED_TRANSITION_TEMPLATE = @"\n<Transition>$1</Transition>";
+NSString * const FALSE_TRANSITION_TEMPLATE  = @"\n<Action>$1</Action>";
 NSString * const PAGE_BREAK_TEMPLATE        = @"\n<Page Break></Page Break>\n";
 NSString * const CLEANUP_TEMPLATE           = @"";
 NSString * const FIRST_LINE_ACTION_TEMPLATE = @"<Action>$1</Action>\n";

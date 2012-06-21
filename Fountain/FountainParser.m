@@ -76,13 +76,13 @@
     // Blast the script with regexes. 
     // Make sure pattern and template regexes match up!
     NSArray *patterns  = [NSArray arrayWithObjects:UNIVERSAL_LINE_BREAKS_PATTERN, BLOCK_COMMENT_PATTERN, 
-                          BRACKET_COMMENT_PATTERN, SYNOPSIS_PATTERN, PAGE_BREAK_PATTERN, FORCED_TRANSITION_PATTERN,
+                          BRACKET_COMMENT_PATTERN, SYNOPSIS_PATTERN, PAGE_BREAK_PATTERN, FALSE_TRANSITION_PATTERN, FORCED_TRANSITION_PATTERN,
                           SCENE_HEADER_PATTERN, FIRST_LINE_ACTION_PATTERN, TRANSITION_PATTERN, 
                           CHARACTER_CUE_PATTERN, PARENTHETICAL_PATTERN, DIALOGUE_PATTERN, SECTION_HEADER_PATTERN,
                           ACTION_PATTERN, CLEANUP_PATTERN, NEWLINE_REPLACEMENT, nil];
     
     NSArray *templates = [NSArray arrayWithObjects:UNIVERSAL_LINE_BREAKS_TEMPLATE, BLOCK_COMMENT_TEMPLATE, 
-                          BRACKET_COMMENT_TEMPLATE, SYNOPSIS_TEMPLATE, PAGE_BREAK_TEMPLATE, FORCED_TRANSITION_TEMPLATE,
+                          BRACKET_COMMENT_TEMPLATE, SYNOPSIS_TEMPLATE, PAGE_BREAK_TEMPLATE, FALSE_TRANSITION_TEMPLATE, FORCED_TRANSITION_TEMPLATE,
                           SCENE_HEADER_TEMPLATE, FIRST_LINE_ACTION_TEMPLATE, TRANSITION_TEMPLATE, 
                           CHARACTER_CUE_TEMPLATE, PARENTHETICAL_TEMPLATE, DIALOGUE_TEMPLATE, SECTION_HEADER_TEMPLATE,
                           ACTION_TEMPLATE, CLEANUP_TEMPLATE, NEWLINE_RESTORE, nil];
@@ -151,7 +151,7 @@
         // More refined processing of elements based on text/type
         if ([element.elementText isMatchedByRegex:CENTERED_TEXT_PATTERN]) {
             element.isCentered = YES;
-            element.elementText = [element.elementText stringByMatching:@"(>?)[ ]*([^<>\\n]+)[ ]*(<?)" capture:2];
+            element.elementText = [[element.elementText stringByMatching:@"(>?)\\s*([^<>\\n]*)\\s*(<?)" capture:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         }
         
         if ([element.elementType isEqualToString:@"Scene Heading"]) {

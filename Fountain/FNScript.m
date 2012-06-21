@@ -119,4 +119,9 @@
     return success;
 }
 
+- (NSString *)description
+{
+    return [FountainWriter documentFromScript:self];
+}
+
 @end

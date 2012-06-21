@@ -53,4 +53,22 @@
     [super dealloc];
 }
 
+- (NSString *)description
+{
+    NSString *textOutput = self.elementText;
+    NSMutableString *typeOutput = [NSMutableString stringWithFormat:self.elementType];
+    
+    if (self.isCentered) {
+        [typeOutput appendString:@" (centered)"];
+    }
+    else if (self.isDualDialogue) {
+        [typeOutput appendString:@" (dual dialogue)"];
+    }
+    else if (self.sectionDepth) {
+        [typeOutput appendFormat:@" (%@)", self.sectionDepth];
+    }
+    
+    return [NSString stringWithFormat:@"%@: %@", typeOutput, textOutput];
+}
+
 @end

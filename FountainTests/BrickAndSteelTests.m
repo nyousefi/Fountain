@@ -99,7 +99,7 @@
 
 - (void)testTransitions
 {
-    NSInteger indexes[] = {22, 31, 52, 68, 77};
+    NSInteger indexes[] = {22, 31, 68, 77};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
@@ -109,7 +109,7 @@
 
 - (void)testActions
 {
-    NSInteger indexes[] = {1, 16, 30};
+    NSInteger indexes[] = {1, 16, 30, 52};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
