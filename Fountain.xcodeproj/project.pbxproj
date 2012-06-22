@@ -28,7 +28,14 @@
 		3C8CD10D14DF9D9400F18DE6 /* FountainWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */; };
 		3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */; };
 		3C9545E51593EBA500ABBA9B /* FastFountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9545E41593EBA500ABBA9B /* FastFountainParser.m */; };
+		3C95460D1594025400ABBA9B /* FNHTMLScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C95460C1594025400ABBA9B /* FNHTMLScript.m */; };
 		3CB1978214E0D50A00FC672F /* SyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB1978114E0D50A00FC672F /* SyntaxTests.m */; };
+		3CBFF73C159407CC005EC5BF /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CBFF73B159407CC005EC5BF /* Application.xib */; };
+		3CBFF73F15940815005EC5BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBFF73E15940815005EC5BF /* AppDelegate.m */; };
+		3CBFF74115940860005EC5BF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBFF74015940860005EC5BF /* WebKit.framework */; };
+		3CBFF74215940A40005EC5BF /* Big Fish.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD0E214DF589E00F18DE6 /* Big Fish.fountain */; };
+		3CBFF74415940ACC005EC5BF /* ScriptCSS.css in Resources */ = {isa = PBXBuildFile; fileRef = 3CBFF74315940ACC005EC5BF /* ScriptCSS.css */; };
+		3CBFF74715940D52005EC5BF /* FNPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBFF74615940D52005EC5BF /* FNPaginator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +88,17 @@
 		3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.fountain; sourceTree = "<group>"; };
 		3C9545E31593EBA500ABBA9B /* FastFountainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastFountainParser.h; sourceTree = "<group>"; };
 		3C9545E41593EBA500ABBA9B /* FastFountainParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastFountainParser.m; sourceTree = "<group>"; };
+		3C95460B1594025400ABBA9B /* FNHTMLScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHTMLScript.h; sourceTree = "<group>"; };
+		3C95460C1594025400ABBA9B /* FNHTMLScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHTMLScript.m; sourceTree = "<group>"; };
 		3CB1978014E0D50A00FC672F /* SyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxTests.h; sourceTree = "<group>"; };
 		3CB1978114E0D50A00FC672F /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
+		3CBFF73B159407CC005EC5BF /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
+		3CBFF73D15940815005EC5BF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3CBFF73E15940815005EC5BF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3CBFF74015940860005EC5BF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3CBFF74315940ACC005EC5BF /* ScriptCSS.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ScriptCSS.css; sourceTree = "<group>"; };
+		3CBFF74515940D52005EC5BF /* FNPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNPaginator.h; sourceTree = "<group>"; };
+		3CBFF74615940D52005EC5BF /* FNPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNPaginator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBFF74115940860005EC5BF /* WebKit.framework in Frameworks */,
 				3C0BB02E14DF3D55004A90E8 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +128,7 @@
 			children = (
 				3C8CD0FC14DF64B300F18DE6 /* RegexKitLite */,
 				3C0BB03314DF3D55004A90E8 /* Fountain */,
+				3CBFF73915940793005EC5BF /* Sample Project */,
 				3C0BB05014DF3D56004A90E8 /* FountainTests */,
 				3C0BB02C14DF3D55004A90E8 /* Frameworks */,
 				3C0BB02A14DF3D55004A90E8 /* Products */,
@@ -129,6 +147,7 @@
 		3C0BB02C14DF3D55004A90E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CBFF74015940860005EC5BF /* WebKit.framework */,
 				3C0BB02D14DF3D55004A90E8 /* Cocoa.framework */,
 				3C0BB04B14DF3D56004A90E8 /* SenTestingKit.framework */,
 				3C0BB02F14DF3D55004A90E8 /* Other Frameworks */,
@@ -161,7 +180,11 @@
 				3C9545E41593EBA500ABBA9B /* FastFountainParser.m */,
 				3C0BB06914DF3D76004A90E8 /* FountainWriter.h */,
 				3C0BB06A14DF3D76004A90E8 /* FountainWriter.m */,
-				3C0BB03414DF3D55004A90E8 /* Supporting Files */,
+				3C95460B1594025400ABBA9B /* FNHTMLScript.h */,
+				3C95460C1594025400ABBA9B /* FNHTMLScript.m */,
+				3CBFF74315940ACC005EC5BF /* ScriptCSS.css */,
+				3CBFF74515940D52005EC5BF /* FNPaginator.h */,
+				3CBFF74615940D52005EC5BF /* FNPaginator.m */,
 			);
 			path = Fountain;
 			sourceTree = "<group>";
@@ -223,6 +246,18 @@
 				3C8CD0FF14DF64B400F18DE6 /* RegexKitLite.m */,
 			);
 			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
+		3CBFF73915940793005EC5BF /* Sample Project */ = {
+			isa = PBXGroup;
+			children = (
+				3CBFF73B159407CC005EC5BF /* Application.xib */,
+				3CBFF73D15940815005EC5BF /* AppDelegate.h */,
+				3CBFF73E15940815005EC5BF /* AppDelegate.m */,
+				3C0BB03414DF3D55004A90E8 /* Supporting Files */,
+			);
+			name = "Sample Project";
+			path = Fountain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,8 +331,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBFF74215940A40005EC5BF /* Big Fish.fountain in Resources */,
 				3C0BB03814DF3D55004A90E8 /* InfoPlist.strings in Resources */,
 				3C8CD10014DF64B400F18DE6 /* License.rtf in Resources */,
+				3CBFF73C159407CC005EC5BF /* Application.xib in Resources */,
+				3CBFF74415940ACC005EC5BF /* ScriptCSS.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +381,9 @@
 				3C0BB06F14DF3D76004A90E8 /* FountainWriter.m in Sources */,
 				3C8CD10114DF64B400F18DE6 /* RegexKitLite.m in Sources */,
 				3C9545E51593EBA500ABBA9B /* FastFountainParser.m in Sources */,
+				3C95460D1594025400ABBA9B /* FNHTMLScript.m in Sources */,
+				3CBFF73F15940815005EC5BF /* AppDelegate.m in Sources */,
+				3CBFF74715940D52005EC5BF /* FNPaginator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

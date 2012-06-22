@@ -32,9 +32,13 @@ FNScript is intended to make it easy to drop Fountain support into new apps. FNS
 
 This is the data model for the script elements.
 
+### FastFountainParser
+
+FastFountainParser is a proper line-by-line parser. The advantages to this parser are 1) less reliance on regular expressions (it should be much easier to change now) and 2) greatly improved performance. FastFountainParser is roughly 10 times faster than FountainParser.
+
 ### FountainParser
 
-FountainParser provides class methods to read a Fountain script's title page and script body separately. The body is returned as an NSArray of FNElements, and the title page is returned as an NSArray of NSDictionary items.
+FountainParser provides class methods to read a Fountain script's title page and script body separately. The body is returned as an NSArray of FNElements, and the title page is returned as an NSArray of NSDictionary items. This class is provided for legacy purposes.
 
 ### FountainWriter
 
