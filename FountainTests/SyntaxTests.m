@@ -57,7 +57,7 @@
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
-        STAssertEqualObjects(element.elementType, @"Scene Heading", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
+        STAssertEqualObjects(element.elementType, @"Scene Heading", @"[%d] %@", indexes[i], [element description]);
     }
 }
 
@@ -67,18 +67,73 @@
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
         FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
-        STAssertEqualObjects(element.elementType, @"Transition", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
+        STAssertEqualObjects(element.elementType, @"Transition", @"[%d] %@", indexes[i], [element description]);
     }
 }
 
 - (void)testForcedSceneHeadings
 {
     FNElement *forcedSceneHeading = [self.script.elements objectAtIndex:18];
-    STAssertEqualObjects(forcedSceneHeading.elementType, @"Scene Heading", @"Index %d: [%@] %@", 18, forcedSceneHeading.elementType, forcedSceneHeading.elementText);
+    STAssertEqualObjects(forcedSceneHeading.elementType, @"Scene Heading", @"[%d] %@", 18, [forcedSceneHeading description]);
     
     FNElement *notSceneHeading = [self.script.elements objectAtIndex:19];
-    STAssertEqualObjects(notSceneHeading.elementType, @"Action", @"Index %d: [%@] %@", 19, notSceneHeading.elementType, notSceneHeading.elementText);
+    STAssertEqualObjects(notSceneHeading.elementType, @"Action", @"[%d] %@", 19, [notSceneHeading description]);
+    
+}
 
+- (void)testSectionHeadings
+{
+    NSUInteger sectionOneIndex = 14;
+    FNElement *sectionOne = [self.script.elements objectAtIndex:sectionOneIndex];
+    STAssertEqualObjects(sectionOne.elementType, @"Section Heading", @"[%d] %@", sectionOneIndex, sectionOne.elementType);
+    STAssertEquals((int)sectionOne.sectionDepth, 1, @"");
+    STAssertEqualObjects(sectionOne.elementText, @" Section 1", @"[%d] %@", sectionOneIndex, sectionOne.elementText);
+    
+    NSUInteger sectionTwoIndex = 16;
+    FNElement *sectionTwo = [self.script.elements objectAtIndex:sectionTwoIndex];
+    STAssertEqualObjects(sectionTwo.elementType, @"Section Heading", @"[%d] %@", sectionTwoIndex, sectionTwo.elementType);
+    STAssertEquals((int)sectionTwo.sectionDepth, 2, @"");
+    STAssertEqualObjects(sectionTwo.elementText, @" Section 1-1", @"[%d] %@", sectionTwoIndex, sectionTwo.elementText);
+}
+
+- (void)testBoneyard
+{
+    NSUInteger index = 13;
+    FNElement *element = [self.script.elements objectAtIndex:index];
+    STAssertEqualObjects(element.elementType, @"Boneyard", @"[%d] %@", index, [element description]);
+    STAssertEqualObjects(element.elementText, @"\nThis text is in the boneyard.\n", @"[%d] %@", index, [element description]);
+}
+
+- (void)testInLineBoneyard
+{
+    NSUInteger index = 20;
+    FNElement *element = [self.script.elements objectAtIndex:index];
+    STAssertEqualObjects(element.elementType, @"Boneyard", @"[%d] %@", index, [element description]);
+    STAssertEqualObjects(element.elementText, @" Boneyard 2 ", @"[%d] %@", index, [element description]);
+}
+
+- (void)testSynopsis
+{
+    NSUInteger index = 12;
+    FNElement *element = [self.script.elements objectAtIndex:index];
+    STAssertEqualObjects(element.elementType, @"Synopsis", @"[%d] %@", index, [element description]);
+    STAssertEqualObjects(element.elementText, @" Synopsis", @"[%d] %@", index, [element description]);
+}
+
+- (void)testComments
+{
+    NSUInteger index = 11;
+    FNElement *element = [self.script.elements objectAtIndex:index];
+    STAssertEqualObjects(element.elementType, @"Comment", @"[%d] %@", index, [element description]);
+    STAssertEqualObjects(element.elementText, @"Comment", @"[%d] %@", index, [element description]);
+}
+
+- (void)testFalseSectionHeading
+{
+    NSUInteger index = 21;
+    FNElement *element = [self.script.elements objectAtIndex:index];
+    STAssertEqualObjects(element.elementType, @"Action", @"Index %d: [%@] %@", index, element.elementType);
+    STAssertEqualObjects(element.elementText, @"Scott exasperatedly throws down the card on the table and picks up the phone, hitting speed dial #1...", @"Index %d: [%@] %@", index, element.elementText);
 }
 
 @end

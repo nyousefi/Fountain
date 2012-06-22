@@ -26,6 +26,7 @@
 #import "FNElement.h"
 #import "FountainParser.h"
 #import "FountainWriter.h"
+#import "FastFountainParser.h"
 
 @implementation FNScript
 
@@ -61,15 +62,19 @@
 - (void)loadFile:(NSString *)path
 {
     self.filename = [path lastPathComponent];
-    self.elements = [FountainParser parseBodyOfFile:path];
-    self.titlePage = [FountainParser parseTitlePageOfFile:path];
+    FastFountainParser *parser = [[FastFountainParser alloc] initWithFile:path];
+    self.elements = parser.elements;
+    self.titlePage = parser.titlePage;
+    [parser release];
 }
 
 - (void)loadString:(NSString *)string
 {
     self.filename = nil;
-    self.elements = [FountainParser parseBodyOfString:string];
-    self.titlePage = [FountainParser parseTitlePageOfString:string];
+    FastFountainParser *parser = [[FastFountainParser alloc] initWithString:string];
+    self.elements = parser.elements;
+    self.titlePage = parser.titlePage;
+    [parser release];
 }
 
 - (void)dealloc
@@ -122,6 +127,56 @@
 - (NSString *)description
 {
     return [FountainWriter documentFromScript:self];
+}
+
+#pragma mark - Legacy parser methods
+
+- (id)initWithFile:(NSString *)path parser:(FNParserType)parserType
+{
+    self = [self init];
+    if (self) {
+        [self loadFile:path parser:parserType];
+    }
+    return self;
+}
+
+- (id)initWithString:(NSString *)string parser:(FNParserType)parserType
+{
+    self = [self init];
+    if (self) {
+        [self loadString:string parser:parserType];
+    }
+    return self;
+}
+
+- (void)loadString:(NSString *)string parser:(FNParserType)parserType
+{
+    self.filename = nil;
+    if (parserType == FNParserTypeRegexes) {
+        self.elements = [FountainParser parseBodyOfString:string];
+        self.titlePage = [FountainParser parseTitlePageOfString:string];
+    }
+    else {
+        FastFountainParser *parser = [[FastFountainParser alloc] initWithString:string];
+        self.elements = parser.elements;
+        self.titlePage = parser.titlePage;
+        [parser release];
+    }
+}
+
+- (void)loadFile:(NSString *)path parser:(FNParserType)parserType
+{
+    self.filename = [path lastPathComponent];
+    if (parserType == FNParserTypeRegexes) {
+        self.elements = [FountainParser parseBodyOfFile:path];
+        self.titlePage = [FountainParser parseTitlePageOfFile:path];
+    }
+    else {
+        FastFountainParser *parser = [[FastFountainParser alloc] initWithFile:path];
+        self.elements = parser.elements;
+        self.titlePage = parser.titlePage;
+        [parser release];
+    }
 }
 
 @end

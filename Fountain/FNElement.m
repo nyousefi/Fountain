@@ -65,10 +65,20 @@
         [typeOutput appendString:@" (dual dialogue)"];
     }
     else if (self.sectionDepth) {
-        [typeOutput appendFormat:@" (%@)", self.sectionDepth];
+        [typeOutput appendFormat:@" (%d)", self.sectionDepth];
     }
     
     return [NSString stringWithFormat:@"%@: %@", typeOutput, textOutput];
 }
+
+// Convenience class method
++ (FNElement *)elementOfType:(NSString *)elementType text:(NSString *)elementText
+{
+    FNElement *element = [[FNElement alloc] init];
+    element.elementType = elementType;
+    element.elementText = elementText;
+    return [element autorelease];
+}
+
 
 @end

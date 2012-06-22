@@ -27,6 +27,7 @@
 		3C8CD10A14DF7CE600F18DE6 /* BrickAndSteelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD10914DF7CE600F18DE6 /* BrickAndSteelTests.m */; };
 		3C8CD10D14DF9D9400F18DE6 /* FountainWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */; };
 		3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */; };
+		3C9545E51593EBA500ABBA9B /* FastFountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9545E41593EBA500ABBA9B /* FastFountainParser.m */; };
 		3CB1978214E0D50A00FC672F /* SyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB1978114E0D50A00FC672F /* SyntaxTests.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		3C8CD10B14DF9D9400F18DE6 /* FountainWriterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FountainWriterTests.h; sourceTree = "<group>"; };
 		3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FountainWriterTests.m; sourceTree = "<group>"; };
 		3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.fountain; sourceTree = "<group>"; };
+		3C9545E31593EBA500ABBA9B /* FastFountainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastFountainParser.h; sourceTree = "<group>"; };
+		3C9545E41593EBA500ABBA9B /* FastFountainParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastFountainParser.m; sourceTree = "<group>"; };
 		3CB1978014E0D50A00FC672F /* SyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxTests.h; sourceTree = "<group>"; };
 		3CB1978114E0D50A00FC672F /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +157,8 @@
 				3C0BB06414DF3D76004A90E8 /* FNElement.m */,
 				3C0BB06714DF3D76004A90E8 /* FountainParser.h */,
 				3C0BB06814DF3D76004A90E8 /* FountainParser.m */,
+				3C9545E31593EBA500ABBA9B /* FastFountainParser.h */,
+				3C9545E41593EBA500ABBA9B /* FastFountainParser.m */,
 				3C0BB06914DF3D76004A90E8 /* FountainWriter.h */,
 				3C0BB06A14DF3D76004A90E8 /* FountainWriter.m */,
 				3C0BB03414DF3D55004A90E8 /* Supporting Files */,
@@ -337,6 +342,7 @@
 				3C0BB06E14DF3D76004A90E8 /* FountainParser.m in Sources */,
 				3C0BB06F14DF3D76004A90E8 /* FountainWriter.m in Sources */,
 				3C8CD10114DF64B400F18DE6 /* RegexKitLite.m in Sources */,
+				3C9545E51593EBA500ABBA9B /* FastFountainParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  FountainWriterTests.m
+//  FastFountainParser.h
 //
 //  Copyright (c) 2012 Nima Yousefi & John August
 //
@@ -22,48 +22,14 @@
 //  IN THE SOFTWARE.
 //
 
-#import "FountainWriterTests.h"
-#import "FNScript.h"
-#import "FNElement.h"
+#import <Foundation/Foundation.h>
 
-@interface FountainWriterTests ()
-@property (nonatomic, retain) FNScript *script;
-@end
+@interface FastFountainParser : NSObject
 
+@property (retain, nonatomic) NSMutableArray *elements;
+@property (retain, nonatomic) NSMutableArray *titlePage;
 
-@implementation FountainWriterTests
-
-@synthesize script;
-
-- (void)setUp
-{
-    [super setUp];
-    script = [[FNScript alloc] init];
-}
-
-- (void)tearDown
-{
-    [script release];
-    [super tearDown];
-}
-
-#pragma mark - Tests
-
-// This is a horrible way to do a unit test. We're just reading the file, then
-// seeing if we can print the exact same file out. Catching problems requires
-// manually comparing the output to the original. DON'T WRITE TESTS LIKE THIS!
-//
-// (Says the jerk that wrote this test.)
-//
-- (void)testSimpleReadWrite
-{
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *path = [bundle pathForResource:@"Simple" ofType:@"fountain"];
-    [self.script loadFile:path];
-    
-    NSString *input = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSString *output = [self.script stringFromDocument];
-    STAssertEqualObjects(output, input, @"Elements: %@", self.script.elements);
-}
+- (id)initWithFile:(NSString *)filePath;
+- (id)initWithString:(NSString *)string;
 
 @end

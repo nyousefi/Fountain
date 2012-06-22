@@ -67,7 +67,7 @@
             textToWrite = [NSString stringWithFormat:@"\n[[%@]]", element.elementText];
         }
         else if ([element.elementType isEqualToString:@"Boneyard"]) {
-            textToWrite = [NSString stringWithFormat:@"/*\n%@\n*/", element.elementText];
+            textToWrite = [NSString stringWithFormat:@"/*%@*/", element.elementText];
         }
         else if ([element.elementType isEqualToString:@"Synopsis"]) {
             textToWrite = [NSString stringWithFormat:@"=%@", element.elementText];
@@ -101,9 +101,9 @@
             for (NSInteger depthLevel = 1; depthLevel <= element.sectionDepth; depthLevel++) {
                 [sectionDepthMarkup appendString:@"#"];
             }
-            textToWrite = [NSString stringWithFormat:@"%@ %@", sectionDepthMarkup, element.elementText];
+            textToWrite = [sectionDepthMarkup stringByAppendingString:element.elementText];
         }
-        else if ([[NSString stringWithFormat:@"\n%@\n", element.elementText] isEqualToString:@"Transition"]) {
+        else if ([element.elementType isEqualToString:@"Transition"]) {
             if (![element.elementText isMatchedByRegex:TRANSITION_PATTERN]) {
                 textToWrite = [NSString stringWithFormat:@"> %@", element.elementText];
             }

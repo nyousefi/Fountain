@@ -44,4 +44,6 @@
 @property (nonatomic, assign) BOOL isDualDialogue;
 @property (nonatomic, assign) NSUInteger sectionDepth;
 
++ (FNElement *)elementOfType:(NSString *)elementType text:(NSString *)elementText;
+
 @end
