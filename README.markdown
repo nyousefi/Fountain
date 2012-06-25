@@ -20,10 +20,6 @@ One important note: we do not deal with text styling (bold, italic, underline, e
 
 ## Components
 
-### FountainRegexes
-
-This implementation of Fountain make **heavy** use of regular expressions. For this, we apologize. But, this should make it fairly easy to port our implementation to other platforms. FountainRegexes holds all the regular expressions used by the other classes, and then some.
-
 ### FNScript
 
 FNScript is intended to make it easy to drop Fountain support into new apps. FNScript handles reading and writing of Fountain files, and holds the script content. The content of the script is represented as an NSArray of FNElements, and the title page is an NSArray of NSDictionary items.
@@ -34,15 +30,19 @@ This is the data model for the script elements.
 
 ### FastFountainParser
 
-FastFountainParser is a proper line-by-line parser. The advantages to this parser are 1) less reliance on regular expressions (it should be much easier to change now) and 2) greatly improved performance. FastFountainParser is roughly 10 times faster than FountainParser.
-
-### FountainParser
-
-FountainParser provides class methods to read a Fountain script's title page and script body separately. The body is returned as an NSArray of FNElements, and the title page is returned as an NSArray of NSDictionary items. This class is provided for legacy purposes.
+FastFountainParser is a redesigned line-by-line parser. The advantages to this parser over the previously used FountainParser are 1) less reliance on regular expressions (it should be much easier to change now) and 2) greatly improved performance. FastFountainParser is roughly 10 times faster than FountainParser. It is the default in FNScript, however you may still use the older FountainParser via using the FNParserTypeRegex option on the appropriate methods.
 
 ### FountainWriter
 
 FountainWriter provides class methods to convert an FNScript into a Fountain NSString.
+
+### FountainParser
+
+FountainParser provides class methods to read a Fountain script's title page and script body separately. The body is returned as an NSArray of FNElements, and the title page is returned as an NSArray of NSDictionary items. This code is provided for legacy purposes.
+
+### FountainRegexes
+
+This file contains all the regular expressions used by FountainParser. It remains a part of this package because regular expressions provide the simplest route to portability. That said, please be aware that the regular expressions are not fully compliant with the tests, and may not be updated for a while.
 
 ## Installation
 
@@ -50,6 +50,10 @@ FountainWriter provides class methods to convert an FNScript into a Fountain NSS
 2. RegexKitLite requires the `-licucore` linker flag to be added to your project. See http://regexkit.sourceforge.net/RegexKitLite/#AddingRegexKitLitetoyourProject for help enabling RegexKitLite in your project.
 
 If you don't want to use RegexKitLite you can remove the references to it in FountainParser.m and FountainWriter.m. You shouldn't have to change much code outside those files to change the regex library. While the regular expressions should be compatible with most standard regex implementation, you might have to massage them to work with a different library. Good luck with that.
+
+## Usage
+
+See the sample project for a simple example of how the classes here can be used.
 
 ## Testing
 
