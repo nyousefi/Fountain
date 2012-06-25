@@ -152,7 +152,7 @@
 - (void)loadString:(NSString *)string parser:(FNParserType)parserType
 {
     self.filename = nil;
-    if (parserType == FNParserTypeRegexes) {
+    if (parserType == FNParserTypeRegex) {
         self.elements = [FountainParser parseBodyOfString:string];
         self.titlePage = [FountainParser parseTitlePageOfString:string];
     }
@@ -167,7 +167,7 @@
 - (void)loadFile:(NSString *)path parser:(FNParserType)parserType
 {
     self.filename = [path lastPathComponent];
-    if (parserType == FNParserTypeRegexes) {
+    if (parserType == FNParserTypeRegex) {
         self.elements = [FountainParser parseBodyOfFile:path];
         self.titlePage = [FountainParser parseTitlePageOfFile:path];
     }

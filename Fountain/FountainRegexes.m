@@ -42,7 +42,7 @@ NSString * const PAGE_BREAK_PATTERN         = @"(?<=\\n)(\\s*[\\=\\-\\_]{3,8}\\s
 NSString * const CLEANUP_PATTERN            = @"<Action>\\s*<\\/Action>";
 NSString * const FIRST_LINE_ACTION_PATTERN  = @"^\\n\\n([^<>\\n#]*?)\\n";
 NSString * const SCENE_NUMBER_PATTERN       = @"(\\#([0-9A-Za-z\\.\\)-]+)\\#)";
-NSString * const SECTION_HEADER_PATTERN     = @"((#+)\\s*([^\\n]*))\\n?";
+NSString * const SECTION_HEADER_PATTERN     = @"((#+)(\\s*[^\\n]*))\\n?";
 
 #pragma mark - Templates
 

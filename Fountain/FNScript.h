@@ -28,7 +28,7 @@
 
 typedef enum {
     FNParserTypeFast = 0,
-    FNParserTypeRegexes = 1,
+    FNParserTypeRegex = 1,
 } FNParserType;
 
 @interface FNScript : NSObject {
