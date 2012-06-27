@@ -188,7 +188,7 @@
     
     NSInteger dualDialogueCharacterCount = 0;
     NSSet *dialogueTypes = [NSSet setWithObjects:@"Character", @"Dialogue", @"Parenthetical", nil];
-    NSSet *ignoringTypes = [NSSet setWithObjects:@"Boneyard", @"Comment", @"Synopsis", nil];
+    NSSet *ignoringTypes = [NSSet setWithObjects:@"Boneyard", @"Comment", @"Synopsis", @"Section Heading", nil];
     
     FNPaginator *paginator = [[FNPaginator alloc] initWithScript:self.script];
     NSUInteger maxPages = [paginator numberOfPages];
