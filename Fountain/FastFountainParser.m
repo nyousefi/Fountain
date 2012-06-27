@@ -26,8 +26,8 @@
 #import "FNElement.h"
 #import "RegexKitLite.h"
 
-static NSString * const kInlinePattern = @"^([^:]+):\\s*([^\\t\\s].*$)";
-static NSString * const kDirectivePattern = @"^([^:]+):([\\t\\s]*$)";
+static NSString * const kInlinePattern = @"^([^\\t\\s][^:]+):\\s*([^\\t\\s].*$)";
+static NSString * const kDirectivePattern = @"^([^\\t\\s][^:]+):([\\t\\s]*$)";
 static NSString * const kContentPattern = @"";
 
 @interface FastFountainParser ()
@@ -75,7 +75,6 @@ static NSString * const kContentPattern = @"";
             }
             
             openKey = [[line stringByMatching:kDirectivePattern capture:1] lowercaseString];
-            
             if ([openKey isEqualToString:@"author"]) {
                 openKey = @"authors";
             }

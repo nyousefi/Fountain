@@ -126,4 +126,30 @@
     STAssertEqualObjects(actualString, expectedString, nil);
 }
 
+- (void)testTitlesWithoutColons
+{
+    NSString *string = @"Title:\n\tI KNOW WHAT YOU DID\n\tLAST SUMMER";
+    [script loadString:string];
+    
+    // You need to call -description in order for the tests to work. If you omit the -description the tests will fail,
+    // but the output will appear to be correct. I'm guessing this is because of how STAssertEqualObjects is doing the
+    // checking. I don't care enough to investigate further.
+    NSString *actualString = [script description];
+    NSString *expectedString = string;
+    STAssertEqualObjects(actualString, expectedString, nil);
+}
+
+- (void)testTitlesWithColons
+{
+    NSString *string = @"Title:\n\tI KNOW WHAT YOU DID:\n\tLAST SUMMER";
+    [script loadString:string];
+    
+    // You need to call -description in order for the tests to work. If you omit the -description the tests will fail,
+    // but the output will appear to be correct. I'm guessing this is because of how STAssertEqualObjects is doing the
+    // checking. I don't care enough to investigate further.
+    NSString *actualString = [script description];
+    NSString *expectedString = string;
+    STAssertEqualObjects(actualString, expectedString, nil);
+}
+
 @end
