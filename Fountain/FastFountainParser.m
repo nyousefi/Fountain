@@ -47,8 +47,8 @@ static NSString * const kContentPattern = @"";
 
 - (void)parseContents:(NSString *)contents
 {
-    // Trim newlines from the document
-    contents = [contents stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    // Trim leading newlines from the document
+    contents = [contents stringByReplacingOccurrencesOfRegex:@"^\\s*" withString:@""];
     contents = [contents stringByReplacingOccurrencesOfRegex:@"\\r\\n|\\r|\\n" withString:@"\n"];
     contents = [NSString stringWithFormat:@"%@\n\n", contents];
     
@@ -274,7 +274,10 @@ static NSString * const kContentPattern = @"";
         }
         
         // Transitions
-        if ([transitions containsObject:[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
+        // We need to trim leading whitespace from the line because whitespace at the end of the line
+        // nullifies Transitions.
+        NSString *lineWithTrimmedLeading = [line stringByReplacingOccurrencesOfRegex:@"^\\s*" withString:@""];
+        if ([transitions containsObject:lineWithTrimmedLeading]) {
             newlinesBefore = 0;
             FNElement *element = [FNElement elementOfType:@"Transition" text:line];
             [self.elements addObject:element];

@@ -46,7 +46,7 @@
     }
     
     // trim newlines from the top and bottom of the document
-    return [document stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return [document stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 }
 
 + (NSString *)bodyFromScript:(FNScript *)script

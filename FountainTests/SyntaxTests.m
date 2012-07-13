@@ -136,4 +136,12 @@
     STAssertEqualObjects(element.elementText, @"Scott exasperatedly throws down the card on the table and picks up the phone, hitting speed dial #1...", @"Index %d: [%@] %@", index, element.elementText);
 }
 
+- (void)testNullifiedTransition
+{
+    NSUInteger index = 23;
+    FNElement *element = [self.script.elements objectAtIndex:index];
+    STAssertEqualObjects(element.elementType, @"Action", @"[%d] %@", index, element.elementType);
+    STAssertEqualObjects(element.elementText, @"CUT TO: ", @"[%d] %@", index, element.elementText);
+}
+
 @end
