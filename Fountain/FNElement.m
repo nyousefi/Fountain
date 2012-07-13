@@ -56,7 +56,7 @@
 - (NSString *)description
 {
     NSString *textOutput = self.elementText;
-    NSMutableString *typeOutput = [NSMutableString stringWithFormat:self.elementType];
+    NSMutableString *typeOutput = [NSMutableString stringWithString:self.elementType];
     
     if (self.isCentered) {
         [typeOutput appendString:@" (centered)"];
@@ -65,7 +65,7 @@
         [typeOutput appendString:@" (dual dialogue)"];
     }
     else if (self.sectionDepth) {
-        [typeOutput appendFormat:@" (%d)", self.sectionDepth];
+        [typeOutput appendFormat:@" (%ld)", self.sectionDepth];
     }
     
     return [NSString stringWithFormat:@"%@: %@", typeOutput, textOutput];
