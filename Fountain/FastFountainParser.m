@@ -318,6 +318,7 @@ static NSString * const kContentPattern = @"";
                     
                     if ([line isMatchedByRegex:@"\\^\\s*$"]) {
                         element.isDualDialogue = YES;
+                        element.elementText = [element.elementText stringByReplacingOccurrencesOfRegex:@"\\s*\\^\\s*$" withString:@""];
                         BOOL foundPreviousCharacter = NO;
                         NSInteger index = [self.elements count] - 1;
                         while ((index >= 0) && !foundPreviousCharacter) {
