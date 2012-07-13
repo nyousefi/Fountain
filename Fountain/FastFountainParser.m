@@ -129,7 +129,7 @@ static NSString * const kContentPattern = @"";
     contents = [NSString stringWithFormat:@"\n%@", contents];
     NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     
-    NSSet *transitions = [NSSet setWithObjects:@"CUT TO:", @"FADE OUT.", @"SMASH CUT TO:", @"CUT TO BLACK.", @"MATCH CUT TO:", nil];
+    NSSet *transitions = [NSSet setWithObjects:@"CUT TO:", @"FADE OUT.", @"SMASH CUT TO:", @"CUT TO BLACK.", @"MATCH CUT TO:", @"DISSOLVE TO:", @"FADE TO:", @"WIPE TO:", nil];
     NSUInteger newlinesBefore = 0;
     NSUInteger index = -1;
     BOOL isCommentBlock = NO;
