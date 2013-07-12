@@ -191,7 +191,7 @@ static NSString * const kContentPattern = @"";
         }
         
         // Synopsis -- a single '=' at the start of the line
-        if (newlinesBefore > 0 && [[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '=') {
+        if ([[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '=') {
             NSRange markupRange = [line rangeOfRegex:@"^\\s*={1}"];
             NSString *text = [line stringByReplacingCharactersInRange:markupRange withString:@""];
             FNElement *element = [FNElement elementOfType:@"Synopsis" text:text];
@@ -208,7 +208,7 @@ static NSString * const kContentPattern = @"";
         }
         
         // Section heading -- one or more '#' at the start of the line, the number of chars == the section depth
-        if (newlinesBefore > 0 && [[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '#') {
+        if ([[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '#') {
             newlinesBefore = 0;
             
             // Get the depth of the section

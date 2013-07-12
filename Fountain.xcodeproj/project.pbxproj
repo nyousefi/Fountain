@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14AA1A54178F8FD400BAEED2 /* Sections.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14AA1A53178F8FD400BAEED2 /* Sections.fountain */; };
+		14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */; };
 		3C0BB02E14DF3D55004A90E8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BB02D14DF3D55004A90E8 /* Cocoa.framework */; };
 		3C0BB03814DF3D55004A90E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C0BB03614DF3D55004A90E8 /* InfoPlist.strings */; };
 		3C0BB03A14DF3D55004A90E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB03914DF3D55004A90E8 /* main.m */; };
@@ -49,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14AA1A53178F8FD400BAEED2 /* Sections.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sections.fountain; sourceTree = "<group>"; };
+		14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionAndSynopsisTests.h; sourceTree = "<group>"; };
+		14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionAndSynopsisTests.m; sourceTree = "<group>"; };
 		3C0BB02914DF3D55004A90E8 /* Fountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0BB02D14DF3D55004A90E8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3C0BB03014DF3D55004A90E8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -213,6 +218,8 @@
 				3C76B00C14E05C5C00EDDA5F /* FNScriptTests.m */,
 				3C8CD10B14DF9D9400F18DE6 /* FountainWriterTests.h */,
 				3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */,
+				14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */,
+				14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */,
 				3C8CD0E014DF579700F18DE6 /* Test Files */,
 				3C0BB05114DF3D56004A90E8 /* Supporting Files */,
 			);
@@ -234,6 +241,7 @@
 				3C8CD0E214DF589E00F18DE6 /* Big Fish.fountain */,
 				3C8CD10614DF7CCC00F18DE6 /* Brick And Steel.txt */,
 				3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */,
+				14AA1A53178F8FD400BAEED2 /* Sections.fountain */,
 			);
 			name = "Test Files";
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 				3C8CD0E314DF589E00F18DE6 /* Big Fish.fountain in Resources */,
 				3C8CD10714DF7CCC00F18DE6 /* Brick And Steel.txt in Resources */,
 				3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */,
+				14AA1A54178F8FD400BAEED2 /* Sections.fountain in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +405,7 @@
 				3C8CD10D14DF9D9400F18DE6 /* FountainWriterTests.m in Sources */,
 				3C76B00D14E05C5C00EDDA5F /* FNScriptTests.m in Sources */,
 				3CB1978214E0D50A00FC672F /* SyntaxTests.m in Sources */,
+				14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
