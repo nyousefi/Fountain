@@ -1,7 +1,7 @@
 //
 //  FountainParser.m
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -75,17 +75,17 @@
     // 2nd pass - Regexes
     // Blast the script with regexes. 
     // Make sure pattern and template regexes match up!
-    NSArray *patterns  = [NSArray arrayWithObjects:UNIVERSAL_LINE_BREAKS_PATTERN, BLOCK_COMMENT_PATTERN, 
+    NSArray *patterns  = @[UNIVERSAL_LINE_BREAKS_PATTERN, BLOCK_COMMENT_PATTERN, 
                           BRACKET_COMMENT_PATTERN, SYNOPSIS_PATTERN, PAGE_BREAK_PATTERN, FALSE_TRANSITION_PATTERN, FORCED_TRANSITION_PATTERN,
                           SCENE_HEADER_PATTERN, FIRST_LINE_ACTION_PATTERN, TRANSITION_PATTERN, 
                           CHARACTER_CUE_PATTERN, PARENTHETICAL_PATTERN, DIALOGUE_PATTERN, SECTION_HEADER_PATTERN,
-                          ACTION_PATTERN, CLEANUP_PATTERN, NEWLINE_REPLACEMENT, nil];
+                          ACTION_PATTERN, CLEANUP_PATTERN, NEWLINE_REPLACEMENT];
     
-    NSArray *templates = [NSArray arrayWithObjects:UNIVERSAL_LINE_BREAKS_TEMPLATE, BLOCK_COMMENT_TEMPLATE, 
+    NSArray *templates = @[UNIVERSAL_LINE_BREAKS_TEMPLATE, BLOCK_COMMENT_TEMPLATE, 
                           BRACKET_COMMENT_TEMPLATE, SYNOPSIS_TEMPLATE, PAGE_BREAK_TEMPLATE, FALSE_TRANSITION_TEMPLATE, FORCED_TRANSITION_TEMPLATE,
                           SCENE_HEADER_TEMPLATE, FIRST_LINE_ACTION_TEMPLATE, TRANSITION_TEMPLATE, 
                           CHARACTER_CUE_TEMPLATE, PARENTHETICAL_TEMPLATE, DIALOGUE_TEMPLATE, SECTION_HEADER_TEMPLATE,
-                          ACTION_TEMPLATE, CLEANUP_TEMPLATE, NEWLINE_RESTORE, nil];
+                          ACTION_TEMPLATE, CLEANUP_TEMPLATE, NEWLINE_RESTORE];
     
     // Validate the array counts (protection against programmer stupidity)
     NSInteger arrayMax = [patterns count];
@@ -96,7 +96,7 @@
     
     // Run the regular expressions
     for (NSInteger i = 0; i < arrayMax; i++) {
-        [scriptContent replaceOccurrencesOfRegex:[patterns objectAtIndex:i] withString:[templates objectAtIndex:i]];
+        [scriptContent replaceOccurrencesOfRegex:patterns[i] withString:templates[i]];
     }
     
     // ------------------------------------------------------------------------ 
@@ -127,7 +127,7 @@
         FNElement *element = [[FNElement alloc] init];
         
         // Convert < and > back to normal
-        NSMutableString *cleanedText = [NSMutableString stringWithString:[elementText objectAtIndex:i]];
+        NSMutableString *cleanedText = [NSMutableString stringWithString:elementText[i]];
         [cleanedText replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [cleanedText length])];
         [cleanedText replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [cleanedText length])];
         [cleanedText replaceOccurrencesOfString:@"::trip::" withString:@"..." options:NSCaseInsensitiveSearch range:NSMakeRange(0, [cleanedText length])];
@@ -135,7 +135,7 @@
         // Deal with scene numbers if we are in a scene heading
         NSString *sceneNumber = nil;
         NSString *fullSceneNumberText = nil;
-        if ([[elementType objectAtIndex:i] isEqualToString:@"Scene Heading"]) {
+        if ([elementType[i] isEqualToString:@"Scene Heading"]) {
             sceneNumber = [cleanedText stringByMatching:SCENE_NUMBER_PATTERN options:RKLCaseless inRange:NSMakeRange(0, [cleanedText length]) capture:2 error:nil];
             fullSceneNumberText = [cleanedText stringByMatching:SCENE_NUMBER_PATTERN options:RKLCaseless inRange:NSMakeRange(0, [cleanedText length]) capture:1 error:nil];
             if (sceneNumber) {
@@ -144,7 +144,7 @@
             }
         }                
         
-        element.elementType     = [elementType objectAtIndex:i];        
+        element.elementType     = elementType[i];        
         element.elementText     = [cleanedText stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];        
         
         
@@ -179,7 +179,7 @@
             FNElement *previousElement;
             NSSet *dialogueBlockTypes   = [NSSet setWithObjects:@"Dialogue", @"Parenthetical", nil];
             do {
-                previousElement = [elementsArray objectAtIndex:j];
+                previousElement = elementsArray[j];
                 if ([previousElement.elementType isEqualToString:@"Character"]) {
                     previousElement.isDualDialogue = YES;
                     previousElement.elementText = [previousElement.elementText stringByReplacingOccurrencesOfString:@"^" withString:@""];
@@ -189,7 +189,6 @@
         }
         
         [elementsArray addObject:element];
-        [element release];
     }    
     return [NSArray arrayWithArray:elementsArray];
 }
@@ -227,7 +226,7 @@
         if ([line isMatchedByRegex:INLINE_DIRECTIVE_PATTERN]) {            
             // if there's an openDirective with data, save it
             if (openDirective != nil && [directiveData count] > 0) {
-                [contents addObject:[NSDictionary dictionaryWithObject:directiveData forKey:openDirective]];
+                [contents addObject:@{openDirective: directiveData}];
                 directiveData = [NSMutableArray array];
             }
             openDirective = nil;
@@ -240,12 +239,12 @@
                 key = @"authors";
             }
             
-            [contents addObject:[NSDictionary dictionaryWithObject:[NSArray arrayWithObject:val] forKey:key]];
+            [contents addObject:@{key: @[val]}];
         }
         else if ([line isMatchedByRegex:MULTI_LINE_DIRECTIVE_PATTERN]) {
             // if there's an openDirective with data, save it
             if (openDirective != nil && [directiveData count] > 0) {
-                [contents addObject:[NSDictionary dictionaryWithObject:directiveData forKey:openDirective]];
+                [contents addObject:@{openDirective: directiveData}];
             }
             
             openDirective = [[line stringByMatching:MULTI_LINE_DIRECTIVE_PATTERN capture:1] lowercaseString];
@@ -264,7 +263,7 @@
     }
     
     if (openDirective != nil && [directiveData count] > 0) {
-        [contents addObject:[NSDictionary dictionaryWithObject:directiveData forKey:openDirective]];
+        [contents addObject:@{openDirective: directiveData}];
     }    
     return contents;
 }

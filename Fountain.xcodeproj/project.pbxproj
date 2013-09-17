@@ -24,7 +24,7 @@
 		3C8CD0E314DF589E00F18DE6 /* Big Fish.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD0E214DF589E00F18DE6 /* Big Fish.fountain */; };
 		3C8CD0E614DF58C300F18DE6 /* BigFishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD0E514DF58C300F18DE6 /* BigFishTests.m */; };
 		3C8CD10014DF64B400F18DE6 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD0FD14DF64B400F18DE6 /* License.rtf */; };
-		3C8CD10114DF64B400F18DE6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD0FF14DF64B400F18DE6 /* RegexKitLite.m */; };
+		3C8CD10114DF64B400F18DE6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD0FF14DF64B400F18DE6 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3C8CD10714DF7CCC00F18DE6 /* Brick And Steel.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD10614DF7CCC00F18DE6 /* Brick And Steel.txt */; };
 		3C8CD10A14DF7CE600F18DE6 /* BrickAndSteelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD10914DF7CE600F18DE6 /* BrickAndSteelTests.m */; };
 		3C8CD10D14DF9D9400F18DE6 /* FountainWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */; };
@@ -487,6 +487,7 @@
 		3C0BB05C14DF3D56004A90E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "Fountain/Fountain-Info.plist";
@@ -499,6 +500,7 @@
 		3C0BB05D14DF3D56004A90E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "Fountain/Fountain-Info.plist";
@@ -512,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fountain.app/Contents/MacOS/Fountain";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
@@ -526,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fountain.app/Contents/MacOS/Fountain";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";

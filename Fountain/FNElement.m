@@ -1,7 +1,7 @@
 //
 //  FNElement.m
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -30,28 +30,19 @@
 
 @implementation FNElement
 
-@synthesize elementType, elementText, isCentered, sceneNumber, isDualDialogue, sectionDepth;
-
 - (id)init
 {
     self = [super init];
     if (self) {
         // defaults
-        isDualDialogue = NO;
-        isCentered = NO;
-        sceneNumber = nil;
-        sectionDepth = 0;
+        _isDualDialogue = NO;
+        _isCentered = NO;
+        _sceneNumber = nil;
+        _sectionDepth = 0;
     }    
     return self;
 }
 
-- (void)dealloc
-{
-    [elementType release];
-    [elementText release];
-    [sceneNumber release];
-    [super dealloc];
-}
 
 - (NSString *)description
 {
@@ -77,7 +68,7 @@
     FNElement *element = [[FNElement alloc] init];
     element.elementType = elementType;
     element.elementText = elementText;
-    return [element autorelease];
+    return element;
 }
 
 

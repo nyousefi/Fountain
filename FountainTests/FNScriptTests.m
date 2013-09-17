@@ -27,7 +27,7 @@
 #import "FNElement.h"
 
 @interface FNScriptTests ()
-@property (nonatomic, retain) FNScript *script;
+@property (nonatomic, strong) FNScript *script;
 @end
 
 @implementation FNScriptTests
@@ -42,7 +42,6 @@
 
 - (void)tearDown
 {
-    [script release];
     [super tearDown];
 }
 
@@ -53,7 +52,6 @@
     NSString *string = @"FADE IN:";
     FNScript *testScript = [[FNScript alloc] initWithString:string];
     STAssertNotNil(testScript, @"Script did not init with this string: %@", string);
-    [testScript release];
 }
 
 - (void)testLoadFile
@@ -92,23 +90,23 @@
     // You need to call -description in order for the tests to work. If you omit the -description the tests will fail,
     // but the output will appear to be correct. I'm guessing this is because of how STAssertEqualObjects is doing the
     // checking. I don't care enough to investigate further.
-    actualString = [[elements objectAtIndex:0] description];
+    actualString = [elements[0] description];
     expectedString = @"Action: FADE IN:";
     STAssertEqualObjects(actualString, expectedString, nil);
     
-    actualString = [[elements objectAtIndex:1] description];
+    actualString = [elements[1] description];
     expectedString = @"Scene Heading: INT. HOUSE - DAY";
     STAssertEqualObjects(actualString, expectedString, nil);
 
-    actualString = [[elements objectAtIndex:2] description];
+    actualString = [elements[2] description];
     expectedString = @"Character: MAN";
     STAssertEqualObjects(actualString, expectedString, nil);
 
-    actualString = [[elements objectAtIndex:3] description];
+    actualString = [elements[3] description];
     expectedString = @"Dialogue: I'm in the house.";
     STAssertEqualObjects(actualString, expectedString, nil);
 
-    actualString = [[elements objectAtIndex:4] description];
+    actualString = [elements[4] description];
     expectedString = @"Action (centered): The end.";
     STAssertEqualObjects(actualString, expectedString, nil);
 }

@@ -27,7 +27,7 @@
 #import "FNElement.h"
 
 @interface SyntaxTests ()
-@property (nonatomic, retain) FNScript *script;
+@property (nonatomic, strong) FNScript *script;
 @end
 
 
@@ -45,7 +45,6 @@
 
 - (void)tearDown
 {
-    [script release];
     [super tearDown];
 }
 
@@ -56,7 +55,7 @@
     NSInteger indexes[] = {1, 7};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Scene Heading", @"[%d] %@", indexes[i], [element description]);
     }
 }
@@ -66,17 +65,17 @@
     NSInteger indexes[] = {9};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Transition", @"[%d] %@", indexes[i], [element description]);
     }
 }
 
 - (void)testForcedSceneHeadings
 {
-    FNElement *forcedSceneHeading = [self.script.elements objectAtIndex:18];
+    FNElement *forcedSceneHeading = (self.script.elements)[18];
     STAssertEqualObjects(forcedSceneHeading.elementType, @"Scene Heading", @"[%d] %@", 18, [forcedSceneHeading description]);
     
-    FNElement *notSceneHeading = [self.script.elements objectAtIndex:19];
+    FNElement *notSceneHeading = (self.script.elements)[19];
     STAssertEqualObjects(notSceneHeading.elementType, @"Action", @"[%d] %@", 19, [notSceneHeading description]);
     
 }
@@ -84,13 +83,13 @@
 - (void)testSectionHeadings
 {
     NSUInteger sectionOneIndex = 14;
-    FNElement *sectionOne = [self.script.elements objectAtIndex:sectionOneIndex];
+    FNElement *sectionOne = (self.script.elements)[sectionOneIndex];
     STAssertEqualObjects(sectionOne.elementType, @"Section Heading", @"[%d] %@", sectionOneIndex, sectionOne.elementType);
     STAssertEquals((int)sectionOne.sectionDepth, 1, @"");
     STAssertEqualObjects(sectionOne.elementText, @" Section 1", @"[%d] %@", sectionOneIndex, sectionOne.elementText);
     
     NSUInteger sectionTwoIndex = 16;
-    FNElement *sectionTwo = [self.script.elements objectAtIndex:sectionTwoIndex];
+    FNElement *sectionTwo = (self.script.elements)[sectionTwoIndex];
     STAssertEqualObjects(sectionTwo.elementType, @"Section Heading", @"[%d] %@", sectionTwoIndex, sectionTwo.elementType);
     STAssertEquals((int)sectionTwo.sectionDepth, 2, @"");
     STAssertEqualObjects(sectionTwo.elementText, @" Section 1-1", @"[%d] %@", sectionTwoIndex, sectionTwo.elementText);
@@ -99,7 +98,7 @@
 - (void)testBoneyard
 {
     NSUInteger index = 13;
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     STAssertEqualObjects(element.elementType, @"Boneyard", @"[%d] %@", index, [element description]);
     STAssertEqualObjects(element.elementText, @"\nThis text is in the boneyard.\n", @"[%d] %@", index, [element description]);
 }
@@ -107,7 +106,7 @@
 - (void)testInLineBoneyard
 {
     NSUInteger index = 20;
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     STAssertEqualObjects(element.elementType, @"Boneyard", @"[%d] %@", index, [element description]);
     STAssertEqualObjects(element.elementText, @" Boneyard 2 ", @"[%d] %@", index, [element description]);
 }
@@ -115,7 +114,7 @@
 - (void)testSynopsis
 {
     NSUInteger index = 12;
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     STAssertEqualObjects(element.elementType, @"Synopsis", @"[%d] %@", index, [element description]);
     STAssertEqualObjects(element.elementText, @" Synopsis", @"[%d] %@", index, [element description]);
 }
@@ -123,7 +122,7 @@
 - (void)testComments
 {
     NSUInteger index = 11;
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     STAssertEqualObjects(element.elementType, @"Comment", @"[%d] %@", index, [element description]);
     STAssertEqualObjects(element.elementText, @"Comment", @"[%d] %@", index, [element description]);
 }
@@ -131,7 +130,7 @@
 - (void)testFalseSectionHeading
 {
     NSUInteger index = 21;
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     STAssertEqualObjects(element.elementType, @"Action", @"Index %d: [%@] %@", index, element.elementType);
     STAssertEqualObjects(element.elementText, @"Scott exasperatedly throws down the card on the table and picks up the phone, hitting speed dial #1...", @"Index %d: [%@] %@", index, element.elementText);
 }
@@ -139,7 +138,7 @@
 - (void)testNullifiedTransition
 {
     NSUInteger index = 23;
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     STAssertEqualObjects(element.elementType, @"Action", @"[%d] %@", index, element.elementType);
     STAssertEqualObjects(element.elementText, @"CUT TO: ", @"[%d] %@", index, element.elementText);
 }

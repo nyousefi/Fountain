@@ -27,7 +27,7 @@
 #import "FNElement.h"
 
 @interface FountainWriterTests ()
-@property (nonatomic, retain) FNScript *script;
+@property (nonatomic, strong) FNScript *script;
 @end
 
 
@@ -43,7 +43,6 @@
 
 - (void)tearDown
 {
-    [script release];
     [super tearDown];
 }
 

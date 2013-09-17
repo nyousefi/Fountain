@@ -1,7 +1,7 @@
 //
 //  FNHTMLScript.m
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -34,29 +34,16 @@
 @property (readonly, copy, nonatomic) NSString *cssText;
 @property (copy, nonatomic) NSString *bodyText;
 
-- (NSString *)bodyForScript;
-
 @end
 
 @implementation FNHTMLScript
-
-@synthesize font, script, cssText, bodyText;
-
-- (void)dealloc
-{
-    [font release];
-    [script release];
-    [cssText release];
-    [bodyText release];
-    [super dealloc];
-}
 
 - (id)initWithScript:(FNScript *)aScript
 {
     self = [super init];
     if (self) {
-        self.script = aScript;
-        self.font = [NSFont fontWithName:@"Courier" size:13];
+        _script = aScript;
+        _font = [NSFont fontWithName:@"Courier" size:13];
     }
     return self;
 }
@@ -113,8 +100,8 @@
         [body appendString:@"<div id='script-title'>"];
         
         // Title
-        if ([titlePage objectForKey:@"title"]) {
-            NSArray *obj = [titlePage objectForKey:@"title"];
+        if (titlePage[@"title"]) {
+            NSArray *obj = titlePage[@"title"];
             NSMutableString *values = [NSMutableString string];
             for (NSString *val in obj) {
                 [values appendFormat:@"%@<br>", val];
@@ -126,9 +113,9 @@
         }
         
         // Credit
-        if ([titlePage objectForKey:@"credit"] || [titlePage objectForKey:@"authors"]) {
-            if ([titlePage objectForKey:@"credit"]) {
-                NSArray *obj = [titlePage objectForKey:@"credit"];
+        if (titlePage[@"credit"] || titlePage[@"authors"]) {
+            if (titlePage[@"credit"]) {
+                NSArray *obj = titlePage[@"credit"];
                 NSMutableString *values = [NSMutableString string];
                 for (NSString *val in obj) {
                     [values appendFormat:@"%@<br>", val];
@@ -140,8 +127,8 @@
             }
             
             // Authors
-            if ([titlePage objectForKey:@"authors"]) {
-                NSArray *obj = [titlePage objectForKey:@"authors"];
+            if (titlePage[@"authors"]) {
+                NSArray *obj = titlePage[@"authors"];
                 NSMutableString *values = [NSMutableString string];
                 for (NSString *val in obj) {
                     [values appendFormat:@"%@<br>", val];
@@ -154,8 +141,8 @@
         }
         
         // Source
-        if ([titlePage objectForKey:@"source"]) {
-            NSArray *obj = [titlePage objectForKey:@"source"];
+        if (titlePage[@"source"]) {
+            NSArray *obj = titlePage[@"source"];
             NSMutableString *values = [NSMutableString string];
             for (NSString *val in obj) {
                 [values appendFormat:@"%@<br>", val];
@@ -164,8 +151,8 @@
         }
         
         // Draft date
-        if ([titlePage objectForKey:@"draft date"]) {
-            NSArray *obj = [titlePage objectForKey:@"draft date"];
+        if (titlePage[@"draft date"]) {
+            NSArray *obj = titlePage[@"draft date"];
             NSMutableString *values = [NSMutableString string];
             for (NSString *val in obj) {
                 [values appendFormat:@"%@<br>", val];
@@ -174,8 +161,8 @@
         }
         
         // Contact
-        if ([titlePage objectForKey:@"contact"]) {
-            NSArray *obj = [titlePage objectForKey:@"contact"];
+        if (titlePage[@"contact"]) {
+            NSArray *obj = titlePage[@"contact"];
             NSMutableString *values = [NSMutableString string];
             for (NSString *val in obj) {
                 [values appendFormat:@"%@<br>", val];

@@ -27,7 +27,7 @@
 #import "FNElement.h"
 
 @interface BigFishTests ()
-@property (nonatomic, retain) FNScript *script;
+@property (nonatomic, strong) FNScript *script;
 @end
 
 @implementation BigFishTests
@@ -44,7 +44,6 @@
 
 - (void)tearDown
 {
-    [script release];
     [super tearDown];
 }
 
@@ -60,7 +59,7 @@
     NSInteger indexes[] = {11, 17, 31, 50};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Scene Heading", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -70,7 +69,7 @@
     NSInteger indexes[] = {6, 9, 13, 19, 39};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Character", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -80,7 +79,7 @@
     NSInteger indexes[] = {7, 10, 14, 16, 20, 24};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Dialogue", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -90,7 +89,7 @@
     NSInteger indexes[] = {15, 23, 40, 70};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Parenthetical", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -100,7 +99,7 @@
     NSInteger indexes[] = {209};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Transition", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -110,7 +109,7 @@
     NSInteger indexes[] = {1};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Page Break", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -120,7 +119,7 @@
     NSInteger indexes[] = {0, 3, 38};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Action", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -136,34 +135,34 @@
 
 - (void)testTitle
 {
-    NSArray *title = [[self.script.titlePage objectAtIndex:0] objectForKey:@"title"];
+    NSArray *title = (self.script.titlePage)[0][@"title"];
     NSInteger actualCount = [title count];
     NSInteger expectedCount = 1;
     STAssertEquals(actualCount, expectedCount, nil);
     
-    NSString *titleValue = [title objectAtIndex:0];
+    NSString *titleValue = title[0];
     STAssertEqualObjects(titleValue, @"Big Fish", nil);
 }
 
 - (void)testCredit
 {
-    NSArray *credit = [[self.script.titlePage objectAtIndex:1] objectForKey:@"credit"];
+    NSArray *credit = (self.script.titlePage)[1][@"credit"];
     NSInteger actualCount = [credit count];
     NSInteger expectedCount = 1;
     STAssertEquals(actualCount, expectedCount, nil);
     
-    NSString *creditValue = [credit objectAtIndex:0];
+    NSString *creditValue = credit[0];
     STAssertEqualObjects(creditValue, @"written by", nil);
 }
 
 - (void)testNotes
 {
-    NSArray *notes = [[self.script.titlePage objectAtIndex:4] objectForKey:@"notes"];
+    NSArray *notes = (self.script.titlePage)[4][@"notes"];
     NSInteger actualCount = [notes count];
     NSInteger expectedCount = 3;
     STAssertEquals(actualCount, expectedCount, nil);
     
-    NSString *noteValue = [notes objectAtIndex:0];
+    NSString *noteValue = notes[0];
     STAssertEqualObjects(noteValue, @"FINAL PRODUCTION DRAFT", nil);
 }
 

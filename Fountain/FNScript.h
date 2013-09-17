@@ -1,7 +1,7 @@
 //
 //  FNScript.h
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -26,21 +26,16 @@
 
 @class FNElement;
 
-typedef enum {
-    FNParserTypeFast = 0,
-    FNParserTypeRegex = 1,
-} FNParserType;
+typedef NS_ENUM(NSInteger, FNParserType) {
+    FNParserTypeFast,
+    FNParserTypeRegex,
+};
 
-@interface FNScript : NSObject {
-    NSString *filename;
-    NSArray *elements;
-    NSArray *titlePage;
-    BOOL suppressSceneNumbers;
-}
+@interface FNScript : NSObject
 
 @property (nonatomic, copy) NSString *filename;
-@property (nonatomic, retain) NSArray *elements;
-@property (nonatomic, retain) NSArray *titlePage;
+@property (nonatomic, strong) NSArray *elements;
+@property (nonatomic, strong) NSArray *titlePage;
 @property (nonatomic, assign) BOOL suppressSceneNumbers;
 
 - (id)initWithFile:(NSString *)path;

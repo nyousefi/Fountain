@@ -1,7 +1,7 @@
 //
 //  FNPaginator.h
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -26,11 +26,7 @@
 
 @class FNScript, FNElement;
 
-@interface FNPaginator : NSObject {
-@private
-    FNScript *script;
-    NSMutableArray *pages;
-}
+@interface FNPaginator : NSObject
 
 @property (nonatomic, readonly) NSUInteger numberOfPages;
 

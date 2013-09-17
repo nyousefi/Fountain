@@ -1,7 +1,7 @@
 //
 //  FNPaginator.m
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -29,29 +29,19 @@
 
 @interface FNPaginator ()
 
-@property (retain, nonatomic) FNScript *script;
-@property (retain, nonatomic) NSMutableArray *pages;
+@property (strong, nonatomic) FNScript *script;
+@property (strong, nonatomic) NSMutableArray *pages;
 
 @end
 
 @implementation FNPaginator
 
-@synthesize script, pages, numberOfPages;
-
-- (void)dealloc
-{
-    [script release];
-    [pages release];
-    [super dealloc];
-}
-
 - (id)initWithScript:(FNScript *)aScript
 {
     self = [super init];
     if (self) {
-        pages = [[NSMutableArray alloc] initWithObjects:nil];
-        numberOfPages = 0;
-        self.script = aScript;
+        _pages = [[NSMutableArray alloc] initWithObjects:nil];
+        _script = aScript;
     }
     return self;
 }
@@ -69,25 +59,25 @@
 - (NSArray *)pageAtIndex:(NSUInteger)index
 {
     // Make sure some kind of pagination has been run before you try to return a value.
-    if ([pages count] == 0) {
+    if ([self.pages count] == 0) {
         [self paginate];
     }
     
     // Make sure we don't try and access an index that doesn't exist
-    if ([pages count] == 0 || (index > [pages count] - 1)) {
-        return [NSArray array];
+    if ([self.pages count] == 0 || (index > [self.pages count] - 1)) {
+        return @[];
     }
     
-    return [pages objectAtIndex:index];
+    return self.pages[index];
 }
 
 - (NSUInteger)numberOfPages
 {
     // Make sure some kind of pagination has been run before you try to return a value.
-    if ([pages count] == 0) {
+    if ([self.pages count] == 0) {
         [self paginate];
     }
-    return [pages count];
+    return [self.pages count];
 }
 
 - (void)paginateForSize:(CGSize)pageSize
@@ -115,7 +105,7 @@
         
         // walk through the elements array
         for (NSInteger i = 0; i < maxElements; i++) {
-            FNElement *element  = [self.script.elements objectAtIndex:i];
+            FNElement *element  = (self.script.elements)[i];
             
             // catch page breaks immediately
             if ([element.elementType isEqualToString:@"Page Break"]) {
@@ -131,7 +121,7 @@
                 
                 // close the open page
                 [currentPage addObject:element];
-                [pages addObject:currentPage];
+                [self.pages addObject:currentPage];
                 
                 // reset currentPage and the currentY value
                 currentPage = [NSMutableArray array];
@@ -168,7 +158,7 @@
             // if it's a screne heading, get the next block
             // if it's a character cue, we need to get the entire dialogue block
             if ([element.elementType isEqualToString:@"Scene Heading"] && i+1 < maxElements) {
-                FNElement *nextElement = [self.script.elements objectAtIndex:i+1];
+                FNElement *nextElement = (self.script.elements)[i+1];
                 NSInteger nextElementWidth = [FNPaginator widthForElement:nextElement];
                 NSInteger nextElementHeight = [FNPaginator heightForString:nextElement.elementText font:font maxWidth:nextElementWidth lineHeight:lineHeight];
                 
@@ -177,7 +167,6 @@
                     forcedBreak.elementType = @"Page Break";
                     forcedBreak.elementText = @"";
                     [tmpElements addObject:forcedBreak];
-                    [forcedBreak release];
                 }
                 
                 [tmpElements addObject:element];
@@ -194,7 +183,7 @@
                     [tmpElements addObject:nextElement];
                     
                     if (j < maxElements) {
-                        nextElement = [self.script.elements objectAtIndex:j++];
+                        nextElement = (self.script.elements)[j++];
                         if ([dialogueBlockTypes containsObject:nextElement.elementType]) {
                             blockHeight += [FNPaginator heightForString:nextElement.elementText font:font maxWidth:elementWidth lineHeight:lineHeight];   
                         }
@@ -233,7 +222,7 @@
             // At the end of the page
             if (totalHeightUsed > maxPageHeight) {
                 // This is how we handle breaking a Character's dialogue across pages
-                if ([tmpElements count] > 0 && [[[tmpElements objectAtIndex:0] elementType] isEqualToString:@"Character"] && ((totalHeightUsed - maxPageHeight) >= (lineHeight * 4))) {
+                if ([tmpElements count] > 0 && [[tmpElements[0] elementType] isEqualToString:@"Character"] && ((totalHeightUsed - maxPageHeight) >= (lineHeight * 4))) {
                     NSInteger blockIndex        = -1;   // initial to -1 because we interate immediately
                     NSInteger maxTmpElements    = [tmpElements count];
                     
@@ -245,7 +234,7 @@
                     // figure out what index spills over the page
                     while ((partialHeight < pageOverflow) && (blockIndex < maxTmpElements - 1)) {
                         blockIndex++;
-                        FNElement *e = [tmpElements objectAtIndex:blockIndex];
+                        FNElement *e = tmpElements[blockIndex];
                         NSInteger h  = [FNPaginator heightForString:e.elementText font:font maxWidth:[FNPaginator widthForElement:e] lineHeight:lineHeight];
                         NSInteger s  = [FNPaginator spaceBeforeForElement:e] * round(lineHeight);
                         partialHeight += h + s;
@@ -253,12 +242,12 @@
                                         
                     if (blockIndex > 0) {
                         // determine what type of element spills
-                        FNElement *spiller = [tmpElements objectAtIndex:blockIndex];
+                        FNElement *spiller = tmpElements[blockIndex];
                         if ([spiller.elementType isEqualToString:@"Parenthetical"]) {
                             // break before, unless we're index 1 (the second element)
                             if (blockIndex > 1) {
                                 for (NSInteger z = 0; z < blockIndex; z++) {
-                                    [currentPage addObject:[tmpElements objectAtIndex:z]];
+                                    [currentPage addObject:tmpElements[z]];
                                 }
                                 
                                 // add the more at the bottom of the page
@@ -267,17 +256,16 @@
                                 more.elementText = @"(MORE)";
                                 
                                 [currentPage addObject:more];
-                                [more release];
                                 
                                 // close the page
-                                [pages addObject:currentPage];
+                                [self.pages addObject:currentPage];
                                 currentPage = [NSMutableArray array];
                                 
                                 // reset the block height
                                 blockHeight = 0;
 
                                 // add the remaining elements, plus the character cue, to the previous page
-                                FNElement *characterCue = [tmpElements objectAtIndex:0];
+                                FNElement *characterCue = tmpElements[0];
                                 characterCue.elementText = [NSString stringWithFormat:@"%@ (CONT'D)", characterCue.elementText];
                                 
                                 blockHeight += [FNPaginator heightForString:characterCue.elementText font:font maxWidth:[FNPaginator widthForElement:characterCue] lineHeight:lineHeight];
@@ -286,8 +274,8 @@
                                 
                                 
                                 for (NSInteger z = blockIndex; z < maxTmpElements; z++) {
-                                    FNElement *e = [tmpElements objectAtIndex:z];
-                                    [currentPage addObject:[tmpElements objectAtIndex:z]];
+                                    FNElement *e = tmpElements[z];
+                                    [currentPage addObject:tmpElements[z]];
                                     blockHeight += [FNPaginator heightForString:e.elementText font:font maxWidth:[FNPaginator widthForElement:e] lineHeight:lineHeight];
                                 }
                                 
@@ -302,7 +290,7 @@
                         else {
                             NSInteger distanceToBottom  = maxPageHeight - currentY - (lineHeight * 2);                        
                             if (distanceToBottom < lineHeight * 5) {
-                                [pages addObject:currentPage];
+                                [self.pages addObject:currentPage];
                                 currentPage = [NSMutableArray array];
                                 currentY    = blockHeight - spaceBefore;
                                 blockHeight = 0;
@@ -311,7 +299,7 @@
                             
                             NSInteger heightBeforeDialogue = 0;
                             for (NSInteger z = 0; z < blockIndex; z++) {
-                                FNElement *e = [tmpElements objectAtIndex:z];
+                                FNElement *e = tmpElements[z];
                                 heightBeforeDialogue += [FNPaginator spaceBeforeForElement:e];
                                 heightBeforeDialogue += [FNPaginator heightForString:e.elementText font:font maxWidth:[FNPaginator widthForElement:e] lineHeight:lineHeight];
                             }
@@ -325,12 +313,12 @@
 
                             while ((dialogueHeight < distanceToBottom) && (sentenceIndex < maxSentences - 1)) {
                                 sentenceIndex++;
-                                NSString *text = [NSString stringWithFormat:@"%@%@", dialogueBeforeBreak, [sentences objectAtIndex:sentenceIndex]];
-                                NSInteger h = [FNPaginator heightForString:text font:font maxWidth:[FNPaginator widthForElement:[tmpElements objectAtIndex:blockIndex]] lineHeight:lineHeight];                        
+                                NSString *text = [NSString stringWithFormat:@"%@%@", dialogueBeforeBreak, sentences[sentenceIndex]];
+                                NSInteger h = [FNPaginator heightForString:text font:font maxWidth:[FNPaginator widthForElement:tmpElements[blockIndex]] lineHeight:lineHeight];                        
                                 dialogueHeight = h;
                                 
                                 if (dialogueHeight < distanceToBottom) {
-                                    [dialogueBeforeBreak appendString:[sentences objectAtIndex:sentenceIndex]];
+                                    [dialogueBeforeBreak appendString:sentences[sentenceIndex]];
                                 }
                             }
                                                         
@@ -343,7 +331,7 @@
                             if (![preBreakDialogue.elementText isEqualToString:@""]) {
                                 // we need to split this element's text so that it fits on both pages
                                 for (NSInteger z = 0; z < blockIndex; z++) {
-                                    [currentPage addObject:[tmpElements objectAtIndex:z]];
+                                    [currentPage addObject:tmpElements[z]];
                                 }
                                 
                                 [currentPage addObject:preBreakDialogue];
@@ -354,22 +342,20 @@
                                 more.elementText = @"(MORE)";
                                 
                                 [currentPage addObject:more];
-                                [more release];
                                 
                                 // close the page
-                                [pages addObject:currentPage];
+                                [self.pages addObject:currentPage];
                                 currentPage = [NSMutableArray array];
                             }
                             else {
-                                [pages addObject:currentPage];
+                                [self.pages addObject:currentPage];
                                 currentPage = [NSMutableArray array];
                                 
                                 for (NSInteger z = 1; z < blockIndex; z++) {
-                                    [currentPage addObject:[tmpElements objectAtIndex:z]];
+                                    [currentPage addObject:tmpElements[z]];
                                 }
                             }
                             
-                            [preBreakDialogue release];
                             
 
                             // reset the block height
@@ -378,12 +364,11 @@
                             // add the remaining elements, plus the character cue, to the previous page
                             FNElement *characterCue = [[FNElement alloc] init];
                             characterCue.elementType = @"Character";
-                            characterCue.elementText = [NSString stringWithFormat:@"%@", [[tmpElements objectAtIndex:0] elementText]];
+                            characterCue.elementText = [NSString stringWithFormat:@"%@", [tmpElements[0] elementText]];
                             
                             blockHeight += [FNPaginator heightForString:characterCue.elementText font:font maxWidth:[FNPaginator widthForElement:characterCue] lineHeight:lineHeight];
                             
                             [currentPage addObject:characterCue];
-                            [characterCue release];
                             
                             // create the postBreakDialogue
                             if (sentenceIndex < 0) {
@@ -392,7 +377,7 @@
                             
                             NSMutableString *dialogueAfterBreak = [NSMutableString string];
                             for (NSInteger z = sentenceIndex; z < maxSentences; z++) {
-                                [dialogueAfterBreak appendString:[sentences objectAtIndex:z]];
+                                [dialogueAfterBreak appendString:sentences[z]];
                             }
                             
                             FNElement *postBreakDialogue = [[FNElement alloc] init];
@@ -402,13 +387,12 @@
                             blockHeight += [FNPaginator heightForString:postBreakDialogue.elementText font:font maxWidth:[FNPaginator widthForElement:postBreakDialogue] lineHeight:lineHeight];                        
                             
                             [currentPage addObject:postBreakDialogue];
-                            [postBreakDialogue release];
                             
                             // add remaining elements
                             if (blockIndex + 1 < maxTmpElements) {
                                 for (NSInteger z = blockIndex + 1; z < maxTmpElements; z++) {
-                                    FNElement *e = [tmpElements objectAtIndex:z];
-                                    [currentPage addObject:[tmpElements objectAtIndex:z]];
+                                    FNElement *e = tmpElements[z];
+                                    [currentPage addObject:tmpElements[z]];
                                     blockHeight += [FNPaginator heightForString:e.elementText font:font maxWidth:[FNPaginator widthForElement:e] lineHeight:lineHeight];
                                 }
                             }
@@ -421,13 +405,13 @@
                         }
                     }
                     else {
-                        [pages addObject:currentPage];
+                        [self.pages addObject:currentPage];
                         currentPage = [NSMutableArray array];
                         currentY    = blockHeight - spaceBefore;
                     }
                 }
                 else {
-                    [pages addObject:currentPage];
+                    [self.pages addObject:currentPage];
                     currentPage = [NSMutableArray array];
                     currentY    = blockHeight - spaceBefore;
                     blockHeight = 0;
@@ -458,7 +442,7 @@
         
         // add the last page of the script to the array
         if ([currentPage count] > 0) {
-            [pages addObject:currentPage];
+            [self.pages addObject:currentPage];
         }
     }
 }
@@ -543,7 +527,7 @@
      */
     
     // set up the layout manager
-    NSTextStorage   *textStorage   = [[NSTextStorage alloc] initWithString:string attributes:[NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil]];
+    NSTextStorage   *textStorage   = [[NSTextStorage alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
     NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(maxWidth, INT_MAX)];
     NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
     
@@ -563,11 +547,6 @@
         [layoutManager lineFragmentRectForGlyphAtIndex:index effectiveRange:&lineRange];
         index = NSMaxRange(lineRange);
     }
-    
-    // free memory
-    [layoutManager autorelease];
-    [textContainer autorelease];
-    [textStorage autorelease];
     
     // calculate the height
     NSInteger height = numberOfLines * lineHeight;

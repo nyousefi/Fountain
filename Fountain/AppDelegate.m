@@ -7,19 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import <WebKit/WebKit.h>
 #import "FNScript.h"
 #import "FNHTMLScript.h"
+#import <WebKit/WebKit.h>
 
 @implementation AppDelegate
 
 @synthesize webView = _webView;
-
-- (void)dealloc
-{
-    [_webView release];
-    [super dealloc];
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {

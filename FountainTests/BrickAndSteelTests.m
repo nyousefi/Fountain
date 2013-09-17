@@ -27,7 +27,7 @@
 #import "FNElement.h"
 
 @interface BrickAndSteelTests ()
-@property (nonatomic, retain) FNScript *script;
+@property (nonatomic, strong) FNScript *script;
 @end
 
 
@@ -45,7 +45,6 @@
 
 - (void)tearDown
 {
-    [script release];
     [super tearDown];
 }
 
@@ -61,7 +60,7 @@
     NSInteger indexes[] = {0, 23, 32, 40, 49, 55};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Scene Heading", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 
@@ -72,7 +71,7 @@
     NSInteger indexes[] = {3, 5, 18, 20, 25};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Character", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -82,7 +81,7 @@
     NSInteger indexes[] = {4, 12, 27};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Dialogue", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -92,7 +91,7 @@
     NSInteger indexes[] = {11, 26};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Parenthetical", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -102,7 +101,7 @@
     NSInteger indexes[] = {22, 31, 68, 77};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Transition", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -112,7 +111,7 @@
     NSInteger indexes[] = {1, 16, 30, 52};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertEqualObjects(element.elementType, @"Action", @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -122,7 +121,7 @@
     NSInteger indexes[] = {50, 51};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertTrue(element.isCentered, @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -132,7 +131,7 @@
     NSInteger indexes[] = {18, 20};
     NSInteger maxIndexes = sizeof(indexes)/sizeof(NSInteger);
     for (int i=0; i < maxIndexes; i++) {
-        FNElement *element = [self.script.elements objectAtIndex:indexes[i]];
+        FNElement *element = (self.script.elements)[indexes[i]];
         STAssertTrue(element.isDualDialogue, @"Index %d: [%@] %@", indexes[i], element.elementType, element.elementText);
     }
 }
@@ -140,7 +139,7 @@
 - (void)testPreserveSpaces
 {
     NSString *expectedString = @"	*Did you know Brick and Steel are retired?*";
-    FNElement *element = [self.script.elements objectAtIndex:27];
+    FNElement *element = (self.script.elements)[27];
     STAssertEqualObjects(element.elementText, expectedString, nil);
 }
 
@@ -155,7 +154,7 @@
 
 - (void)testTitle
 {
-    NSArray *title = [[self.script.titlePage objectAtIndex:0] objectForKey:@"title"];
+    NSArray *title = (self.script.titlePage)[0][@"title"];
     NSInteger actualCount = [title count];
     NSInteger expectedCount = 2;
     STAssertEquals(actualCount, expectedCount, nil);

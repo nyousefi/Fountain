@@ -1,7 +1,7 @@
 //
 //  FastFountainParser.h
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -26,8 +26,8 @@
 
 @interface FastFountainParser : NSObject
 
-@property (retain, nonatomic) NSMutableArray *elements;
-@property (retain, nonatomic) NSMutableArray *titlePage;
+@property (strong, nonatomic) NSMutableArray *elements;
+@property (strong, nonatomic) NSMutableArray *titlePage;
 
 - (id)initWithFile:(NSString *)filePath;
 - (id)initWithString:(NSString *)string;

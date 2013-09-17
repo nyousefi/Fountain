@@ -1,7 +1,7 @@
 //
 //  FountainWriter.m
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -158,7 +158,7 @@
                 if ([key isEqualToString:@"authors"]) {
                     keyString = @"Author";
                 }
-                [titlePageContent appendFormat:@"%@: %@\n", keyString, [obj objectAtIndex:0]];
+                [titlePageContent appendFormat:@"%@: %@\n", keyString, obj[0]];
             }
             else {
                 [titlePageContent appendFormat:@"%@:\n", keyString];

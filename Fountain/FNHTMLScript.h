@@ -1,7 +1,7 @@
 //
 //  FNHTMLScript.h
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -28,8 +28,8 @@
 
 @interface FNHTMLScript : NSObject
 
-@property (retain, nonatomic) NSFont *font;
-@property (retain, nonatomic) FNScript *script;
+@property (strong, nonatomic) NSFont *font;
+@property (strong, nonatomic) FNScript *script;
 
 - (id)initWithScript:(FNScript *)aScript;
 

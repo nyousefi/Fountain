@@ -1,7 +1,7 @@
 //
 //  FastFountainParser.m
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -31,19 +31,12 @@ static NSString * const kDirectivePattern = @"^([^\\t\\s][^:]+):([\\t\\s]*$)";
 static NSString * const kContentPattern = @"";
 
 @interface FastFountainParser ()
+
 - (void)parseContents:(NSString *)contents;
+
 @end
 
 @implementation FastFountainParser
-
-@synthesize elements, titlePage;
-
-- (void)dealloc
-{
-    [elements release];
-    [titlePage release];
-    [super dealloc];
-}
 
 - (void)parseContents:(NSString *)contents
 {
@@ -70,7 +63,7 @@ static NSString * const kContentPattern = @"";
             foundTitlePage = YES;
             // If a key was open we want to close it
             if (![openKey isEqualToString:@""]) {
-                NSDictionary *dict = [NSDictionary dictionaryWithObject:openValues forKey:openKey];
+                NSDictionary *dict = @{openKey: openValues};
                 [self.titlePage addObject:dict];
             }
             
@@ -83,7 +76,7 @@ static NSString * const kContentPattern = @"";
             foundTitlePage = YES;
             // If a key was open we want to close it
             if (![openKey isEqualToString:@""]) {
-                NSDictionary *dict = [NSDictionary dictionaryWithObject:openValues forKey:openKey];
+                NSDictionary *dict = @{openKey: openValues};
                 [self.titlePage addObject:dict];
                 openKey = @"";
                 openValues = [NSMutableArray array];
@@ -96,7 +89,7 @@ static NSString * const kContentPattern = @"";
                 key = @"authors";
             }
             
-            NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSArray arrayWithObject:value] forKey:key];
+            NSDictionary *dict = @{key: @[value]};
             [self.titlePage addObject:dict];
             openKey = @"";
             openValues = [NSMutableArray array];
@@ -113,7 +106,7 @@ static NSString * const kContentPattern = @"";
         else {
             // Close any remaining directives
             if (![openKey isEqualToString:@""]) {
-                NSDictionary *dict = [NSDictionary dictionaryWithObject:openValues forKey:openKey];
+                NSDictionary *dict = @{openKey: openValues};
                 [self.titlePage addObject:dict];
                 openKey = @"";
                 openValues = [NSMutableArray array];
@@ -264,12 +257,11 @@ static NSString * const kContentPattern = @"";
                 text = line;
             }
             
-            FNElement *element = [[FNElement elementOfType:@"Scene Heading" text:text] retain];
+            FNElement *element = [FNElement elementOfType:@"Scene Heading" text:text];
             if (sceneNumber) {
                 element.sceneNumber = sceneNumber;
             }
             [self.elements addObject:element];
-            [element release];
             continue;
         }
         
@@ -311,7 +303,7 @@ static NSString * const kContentPattern = @"";
             // look ahead to see if the next line is blank
             NSUInteger nextIndex = index + 1;
             if (nextIndex < [lines count]) {
-                NSString *nextLine = [lines objectAtIndex:index+1];
+                NSString *nextLine = lines[index+1];
                 if (![nextLine isEqualToString:@""]) {
                     newlinesBefore = 0;
                     FNElement *element = [FNElement elementOfType:@"Character" text:line];
@@ -322,7 +314,7 @@ static NSString * const kContentPattern = @"";
                         BOOL foundPreviousCharacter = NO;
                         NSInteger index = [self.elements count] - 1;
                         while ((index >= 0) && !foundPreviousCharacter) {
-                            FNElement *previousElement = [self.elements objectAtIndex:index];
+                            FNElement *previousElement = (self.elements)[index];
                             if ([previousElement.elementType isEqualToString:@"Character"]) {
                                 previousElement.isDualDialogue = YES;
                                 foundPreviousCharacter = YES;
@@ -349,7 +341,7 @@ static NSString * const kContentPattern = @"";
             else {
                 // Check to see if the previous element was a dialogue
                 NSUInteger lastIndex = [self.elements count] - 1;
-                FNElement *previousElement = [self.elements objectAtIndex:lastIndex];
+                FNElement *previousElement = (self.elements)[lastIndex];
                 if ([previousElement.elementType isEqualToString:@"Dialogue"]) {
                     NSString *text = [NSString stringWithFormat:@"%@\n%@", previousElement.elementText, line];
                     previousElement.elementText = text;
@@ -368,7 +360,7 @@ static NSString * const kContentPattern = @"";
         if (newlinesBefore == 0 && [self. elements count] > 0) {
             // Get the previous action line and merge this one into it
             NSUInteger lastIndex = [self.elements count] - 1;
-            FNElement *previousElement = [self.elements objectAtIndex:lastIndex];
+            FNElement *previousElement = (self.elements)[lastIndex];
             NSString *text = [NSString stringWithFormat:@"%@\n%@", previousElement.elementText, line];
             previousElement.elementText = text;
             [self.elements removeObjectAtIndex:lastIndex];
@@ -389,8 +381,8 @@ static NSString * const kContentPattern = @"";
 {
     self = [super init];
     if (self) {
-        elements = [[NSMutableArray alloc] init];
-        titlePage = [[NSMutableArray alloc] init];
+        _elements = [[NSMutableArray alloc] init];
+        _titlePage = [[NSMutableArray alloc] init];
         [self parseContents:string];
     }
     return self;
@@ -400,8 +392,8 @@ static NSString * const kContentPattern = @"";
 {
     self = [super init];
     if (self) {
-        elements = [[NSMutableArray alloc] init];
-        titlePage = [[NSMutableArray alloc] init];
+        _elements = [[NSMutableArray alloc] init];
+        _titlePage = [[NSMutableArray alloc] init];
         
         NSError *error = nil;
         NSString *contents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];

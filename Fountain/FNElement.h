@@ -1,7 +1,7 @@
 //
 //  FNElement.h
 //
-//  Copyright (c) 2012 Nima Yousefi & John August
+//  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), to 
@@ -25,15 +25,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FNElement : NSObject {
-    NSString *elementType;
-    NSString *elementText;
-    BOOL isCentered;
-    
-    NSString *sceneNumber;
-    BOOL isDualDialogue;
-    NSUInteger sectionDepth;
-}
+@interface FNElement : NSObject
 
 @property (nonatomic, copy) NSString *elementType;
 @property (nonatomic, copy) NSString *elementText;

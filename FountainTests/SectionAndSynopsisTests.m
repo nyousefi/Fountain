@@ -12,7 +12,7 @@
 
 @interface SectionAndSynopsisTests ()
 
-@property (retain, nonatomic) FNScript *script;
+@property (strong, nonatomic) FNScript *script;
 
 @end
 
@@ -24,13 +24,11 @@
     
     NSString *filename = @"Sections";
     NSString *path = [self pathForFile:filename];
-    _script = [[FNScript alloc] initWithFile:path];
+    self.script = [[FNScript alloc] initWithFile:path];
 }
 
 - (void)tearDown
 {
-    [_script release];
-
     [super tearDown];
 }
 
@@ -45,19 +43,19 @@
 
 - (NSString *)errorForElementAtIndex:(NSUInteger)index
 {
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     return [element description];
 }
 
 - (NSString *)elementTypeAtIndex:(NSUInteger)index
 {
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     return element.elementType;
 }
 
 - (NSUInteger)sectionDepthOfElementAtIndex:(NSUInteger)index
 {
-    FNElement *element = [self.script.elements objectAtIndex:index];
+    FNElement *element = (self.script.elements)[index];
     
     if (![element.elementType isEqualToString:@"Section Heading"])
         STFail(@"Element at index %u is not a section header", index);

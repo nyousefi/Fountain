@@ -10,11 +10,8 @@
 
 @class WebView;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSAlertDelegate> {
-@private
-    WebView *webView;
-}
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSAlertDelegate>
 
-@property (nonatomic, assign) IBOutlet WebView *webView;
+@property (nonatomic, weak) IBOutlet WebView *webView;
 
 @end
