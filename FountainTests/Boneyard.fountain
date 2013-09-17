@@ -1,0 +1,11 @@
+A line of action.
+
+/* This is an inline Boneyard. */
+
+/* 
+This is a
+multi-line 
+Boneyard. 
+*/
+
+This is an /* internal */ boneyard.

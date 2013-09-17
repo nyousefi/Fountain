@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		146059FC17E8FCEA00B7B611 /* BaseElementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146059FB17E8FCEA00B7B611 /* BaseElementTests.m */; };
+		146059FF17E8FE1B00B7B611 /* SceneHeaders.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 146059FE17E8FE1B00B7B611 /* SceneHeaders.fountain */; };
+		14605A0217E8FE3100B7B611 /* SceneHeaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0117E8FE3100B7B611 /* SceneHeaderTests.m */; };
+		14605A1917E9005300B7B611 /* BoneyardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0417E9005300B7B611 /* BoneyardTests.m */; };
+		14605A1A17E9005300B7B611 /* CenteredTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0617E9005300B7B611 /* CenteredTests.m */; };
+		14605A1B17E9005300B7B611 /* DialogueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0817E9005300B7B611 /* DialogueTests.m */; };
+		14605A1C17E9005300B7B611 /* IndentingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0A17E9005300B7B611 /* IndentingTests.m */; };
+		14605A1D17E9005300B7B611 /* MultilineActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0C17E9005300B7B611 /* MultilineActionTests.m */; };
+		14605A1E17E9005300B7B611 /* NoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A0E17E9005300B7B611 /* NoteTests.m */; };
+		14605A1F17E9005300B7B611 /* PageBreakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A1017E9005300B7B611 /* PageBreakTests.m */; };
+		14605A2017E9005300B7B611 /* SceneNumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A1217E9005300B7B611 /* SceneNumberTests.m */; };
+		14605A2117E9005300B7B611 /* SectionHeaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A1417E9005300B7B611 /* SectionHeaderTests.m */; };
+		14605A2217E9005300B7B611 /* SynopsisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A1617E9005300B7B611 /* SynopsisTests.m */; };
+		14605A2317E9005300B7B611 /* TransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14605A1817E9005300B7B611 /* TransitionTests.m */; };
+		14605A3017E900AF00B7B611 /* Boneyard.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2417E900AF00B7B611 /* Boneyard.fountain */; };
+		14605A3117E900AF00B7B611 /* CenteredText.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2517E900AF00B7B611 /* CenteredText.fountain */; };
+		14605A3217E900AF00B7B611 /* Dialogue.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2617E900AF00B7B611 /* Dialogue.fountain */; };
+		14605A3317E900AF00B7B611 /* DualDialogue.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2717E900AF00B7B611 /* DualDialogue.fountain */; };
+		14605A3417E900AF00B7B611 /* Indenting.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2817E900AF00B7B611 /* Indenting.fountain */; };
+		14605A3517E900AF00B7B611 /* MultilineAction.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2917E900AF00B7B611 /* MultilineAction.fountain */; };
+		14605A3617E900AF00B7B611 /* Notes.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2A17E900AF00B7B611 /* Notes.fountain */; };
+		14605A3717E900AF00B7B611 /* PageBreaks.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2B17E900AF00B7B611 /* PageBreaks.fountain */; };
+		14605A3817E900AF00B7B611 /* SceneNumbers.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2C17E900AF00B7B611 /* SceneNumbers.fountain */; };
+		14605A3917E900AF00B7B611 /* SectionHeaders.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2D17E900AF00B7B611 /* SectionHeaders.fountain */; };
+		14605A3A17E900AF00B7B611 /* Synopses.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2E17E900AF00B7B611 /* Synopses.fountain */; };
+		14605A3B17E900AF00B7B611 /* Transitions.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2F17E900AF00B7B611 /* Transitions.fountain */; };
 		14AA1A54178F8FD400BAEED2 /* Sections.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14AA1A53178F8FD400BAEED2 /* Sections.fountain */; };
 		14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */; };
 		3C0BB02E14DF3D55004A90E8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BB02D14DF3D55004A90E8 /* Cocoa.framework */; };
@@ -51,6 +77,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		146059FA17E8FCEA00B7B611 /* BaseElementTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseElementTests.h; sourceTree = "<group>"; };
+		146059FB17E8FCEA00B7B611 /* BaseElementTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseElementTests.m; sourceTree = "<group>"; };
+		146059FE17E8FE1B00B7B611 /* SceneHeaders.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneHeaders.fountain; sourceTree = "<group>"; };
+		14605A0017E8FE3100B7B611 /* SceneHeaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneHeaderTests.h; sourceTree = "<group>"; };
+		14605A0117E8FE3100B7B611 /* SceneHeaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneHeaderTests.m; sourceTree = "<group>"; };
+		14605A0317E9005300B7B611 /* BoneyardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoneyardTests.h; sourceTree = "<group>"; };
+		14605A0417E9005300B7B611 /* BoneyardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoneyardTests.m; sourceTree = "<group>"; };
+		14605A0517E9005300B7B611 /* CenteredTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenteredTests.h; sourceTree = "<group>"; };
+		14605A0617E9005300B7B611 /* CenteredTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenteredTests.m; sourceTree = "<group>"; };
+		14605A0717E9005300B7B611 /* DialogueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogueTests.h; sourceTree = "<group>"; };
+		14605A0817E9005300B7B611 /* DialogueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogueTests.m; sourceTree = "<group>"; };
+		14605A0917E9005300B7B611 /* IndentingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndentingTests.h; sourceTree = "<group>"; };
+		14605A0A17E9005300B7B611 /* IndentingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndentingTests.m; sourceTree = "<group>"; };
+		14605A0B17E9005300B7B611 /* MultilineActionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineActionTests.h; sourceTree = "<group>"; };
+		14605A0C17E9005300B7B611 /* MultilineActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineActionTests.m; sourceTree = "<group>"; };
+		14605A0D17E9005300B7B611 /* NoteTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTests.h; sourceTree = "<group>"; };
+		14605A0E17E9005300B7B611 /* NoteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTests.m; sourceTree = "<group>"; };
+		14605A0F17E9005300B7B611 /* PageBreakTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageBreakTests.h; sourceTree = "<group>"; };
+		14605A1017E9005300B7B611 /* PageBreakTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageBreakTests.m; sourceTree = "<group>"; };
+		14605A1117E9005300B7B611 /* SceneNumberTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneNumberTests.h; sourceTree = "<group>"; };
+		14605A1217E9005300B7B611 /* SceneNumberTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneNumberTests.m; sourceTree = "<group>"; };
+		14605A1317E9005300B7B611 /* SectionHeaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderTests.h; sourceTree = "<group>"; };
+		14605A1417E9005300B7B611 /* SectionHeaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderTests.m; sourceTree = "<group>"; };
+		14605A1517E9005300B7B611 /* SynopsisTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynopsisTests.h; sourceTree = "<group>"; };
+		14605A1617E9005300B7B611 /* SynopsisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynopsisTests.m; sourceTree = "<group>"; };
+		14605A1717E9005300B7B611 /* TransitionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionTests.h; sourceTree = "<group>"; };
+		14605A1817E9005300B7B611 /* TransitionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionTests.m; sourceTree = "<group>"; };
+		14605A2417E900AF00B7B611 /* Boneyard.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Boneyard.fountain; sourceTree = "<group>"; };
+		14605A2517E900AF00B7B611 /* CenteredText.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CenteredText.fountain; sourceTree = "<group>"; };
+		14605A2617E900AF00B7B611 /* Dialogue.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dialogue.fountain; sourceTree = "<group>"; };
+		14605A2717E900AF00B7B611 /* DualDialogue.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DualDialogue.fountain; sourceTree = "<group>"; };
+		14605A2817E900AF00B7B611 /* Indenting.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Indenting.fountain; sourceTree = "<group>"; };
+		14605A2917E900AF00B7B611 /* MultilineAction.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MultilineAction.fountain; sourceTree = "<group>"; };
+		14605A2A17E900AF00B7B611 /* Notes.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes.fountain; sourceTree = "<group>"; };
+		14605A2B17E900AF00B7B611 /* PageBreaks.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PageBreaks.fountain; sourceTree = "<group>"; };
+		14605A2C17E900AF00B7B611 /* SceneNumbers.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneNumbers.fountain; sourceTree = "<group>"; };
+		14605A2D17E900AF00B7B611 /* SectionHeaders.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SectionHeaders.fountain; sourceTree = "<group>"; };
+		14605A2E17E900AF00B7B611 /* Synopses.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Synopses.fountain; sourceTree = "<group>"; };
+		14605A2F17E900AF00B7B611 /* Transitions.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Transitions.fountain; sourceTree = "<group>"; };
 		14AA1A53178F8FD400BAEED2 /* Sections.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sections.fountain; sourceTree = "<group>"; };
 		14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionAndSynopsisTests.h; sourceTree = "<group>"; };
 		14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionAndSynopsisTests.m; sourceTree = "<group>"; };
@@ -128,6 +193,85 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		146059F917E8FBA000B7B611 /* Element Tests */ = {
+			isa = PBXGroup;
+			children = (
+				146059FA17E8FCEA00B7B611 /* BaseElementTests.h */,
+				146059FB17E8FCEA00B7B611 /* BaseElementTests.m */,
+				14605A0017E8FE3100B7B611 /* SceneHeaderTests.h */,
+				14605A0117E8FE3100B7B611 /* SceneHeaderTests.m */,
+				14605A1117E9005300B7B611 /* SceneNumberTests.h */,
+				14605A1217E9005300B7B611 /* SceneNumberTests.m */,
+				14605A1717E9005300B7B611 /* TransitionTests.h */,
+				14605A1817E9005300B7B611 /* TransitionTests.m */,
+				14605A0717E9005300B7B611 /* DialogueTests.h */,
+				14605A0817E9005300B7B611 /* DialogueTests.m */,
+				14605A0F17E9005300B7B611 /* PageBreakTests.h */,
+				14605A1017E9005300B7B611 /* PageBreakTests.m */,
+				14605A1317E9005300B7B611 /* SectionHeaderTests.h */,
+				14605A1417E9005300B7B611 /* SectionHeaderTests.m */,
+				14605A0317E9005300B7B611 /* BoneyardTests.h */,
+				14605A0417E9005300B7B611 /* BoneyardTests.m */,
+				14605A0517E9005300B7B611 /* CenteredTests.h */,
+				14605A0617E9005300B7B611 /* CenteredTests.m */,
+				14605A0917E9005300B7B611 /* IndentingTests.h */,
+				14605A0A17E9005300B7B611 /* IndentingTests.m */,
+				14605A0B17E9005300B7B611 /* MultilineActionTests.h */,
+				14605A0C17E9005300B7B611 /* MultilineActionTests.m */,
+				14605A0D17E9005300B7B611 /* NoteTests.h */,
+				14605A0E17E9005300B7B611 /* NoteTests.m */,
+				14605A1517E9005300B7B611 /* SynopsisTests.h */,
+				14605A1617E9005300B7B611 /* SynopsisTests.m */,
+			);
+			name = "Element Tests";
+			sourceTree = "<group>";
+		};
+		146059FD17E8FDED00B7B611 /* Element specific */ = {
+			isa = PBXGroup;
+			children = (
+				146059FE17E8FE1B00B7B611 /* SceneHeaders.fountain */,
+				14605A2C17E900AF00B7B611 /* SceneNumbers.fountain */,
+				14605A2F17E900AF00B7B611 /* Transitions.fountain */,
+				14605A2617E900AF00B7B611 /* Dialogue.fountain */,
+				14605A2717E900AF00B7B611 /* DualDialogue.fountain */,
+				14605A2B17E900AF00B7B611 /* PageBreaks.fountain */,
+				14605A2D17E900AF00B7B611 /* SectionHeaders.fountain */,
+				14605A2417E900AF00B7B611 /* Boneyard.fountain */,
+				14605A2517E900AF00B7B611 /* CenteredText.fountain */,
+				14605A2817E900AF00B7B611 /* Indenting.fountain */,
+				14605A2917E900AF00B7B611 /* MultilineAction.fountain */,
+				14605A2A17E900AF00B7B611 /* Notes.fountain */,
+				14605A2E17E900AF00B7B611 /* Synopses.fountain */,
+			);
+			name = "Element specific";
+			sourceTree = "<group>";
+		};
+		14605A3C17E908B100B7B611 /* Document Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3C8CD0E414DF58C300F18DE6 /* BigFishTests.h */,
+				3C8CD0E514DF58C300F18DE6 /* BigFishTests.m */,
+				3C8CD10814DF7CE600F18DE6 /* BrickAndSteelTests.h */,
+				3C8CD10914DF7CE600F18DE6 /* BrickAndSteelTests.m */,
+			);
+			name = "Document Tests";
+			sourceTree = "<group>";
+		};
+		14605A3D17E908CB00B7B611 /* Legacy Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3CB1978014E0D50A00FC672F /* SyntaxTests.h */,
+				3CB1978114E0D50A00FC672F /* SyntaxTests.m */,
+				3C76B00B14E05C5C00EDDA5F /* FNScriptTests.h */,
+				3C76B00C14E05C5C00EDDA5F /* FNScriptTests.m */,
+				3C8CD10B14DF9D9400F18DE6 /* FountainWriterTests.h */,
+				3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */,
+				14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */,
+				14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */,
+			);
+			name = "Legacy Tests";
+			sourceTree = "<group>";
+		};
 		3C0BB01E14DF3D55004A90E8 = {
 			isa = PBXGroup;
 			children = (
@@ -208,18 +352,9 @@
 		3C0BB05014DF3D56004A90E8 /* FountainTests */ = {
 			isa = PBXGroup;
 			children = (
-				3C8CD0E414DF58C300F18DE6 /* BigFishTests.h */,
-				3C8CD0E514DF58C300F18DE6 /* BigFishTests.m */,
-				3C8CD10814DF7CE600F18DE6 /* BrickAndSteelTests.h */,
-				3C8CD10914DF7CE600F18DE6 /* BrickAndSteelTests.m */,
-				3CB1978014E0D50A00FC672F /* SyntaxTests.h */,
-				3CB1978114E0D50A00FC672F /* SyntaxTests.m */,
-				3C76B00B14E05C5C00EDDA5F /* FNScriptTests.h */,
-				3C76B00C14E05C5C00EDDA5F /* FNScriptTests.m */,
-				3C8CD10B14DF9D9400F18DE6 /* FountainWriterTests.h */,
-				3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */,
-				14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */,
-				14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */,
+				14605A3C17E908B100B7B611 /* Document Tests */,
+				146059F917E8FBA000B7B611 /* Element Tests */,
+				14605A3D17E908CB00B7B611 /* Legacy Tests */,
 				3C8CD0E014DF579700F18DE6 /* Test Files */,
 				3C0BB05114DF3D56004A90E8 /* Supporting Files */,
 			);
@@ -242,6 +377,7 @@
 				3C8CD10614DF7CCC00F18DE6 /* Brick And Steel.txt */,
 				3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */,
 				14AA1A53178F8FD400BAEED2 /* Sections.fountain */,
+				146059FD17E8FDED00B7B611 /* Element specific */,
 			);
 			name = "Test Files";
 			sourceTree = "<group>";
@@ -351,11 +487,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14605A3617E900AF00B7B611 /* Notes.fountain in Resources */,
+				14605A3017E900AF00B7B611 /* Boneyard.fountain in Resources */,
 				3C0BB05514DF3D56004A90E8 /* InfoPlist.strings in Resources */,
 				3C8CD0E314DF589E00F18DE6 /* Big Fish.fountain in Resources */,
 				3C8CD10714DF7CCC00F18DE6 /* Brick And Steel.txt in Resources */,
+				14605A3417E900AF00B7B611 /* Indenting.fountain in Resources */,
+				14605A3B17E900AF00B7B611 /* Transitions.fountain in Resources */,
+				146059FF17E8FE1B00B7B611 /* SceneHeaders.fountain in Resources */,
 				3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */,
+				14605A3117E900AF00B7B611 /* CenteredText.fountain in Resources */,
+				14605A3A17E900AF00B7B611 /* Synopses.fountain in Resources */,
 				14AA1A54178F8FD400BAEED2 /* Sections.fountain in Resources */,
+				14605A3917E900AF00B7B611 /* SectionHeaders.fountain in Resources */,
+				14605A3717E900AF00B7B611 /* PageBreaks.fountain in Resources */,
+				14605A3217E900AF00B7B611 /* Dialogue.fountain in Resources */,
+				14605A3317E900AF00B7B611 /* DualDialogue.fountain in Resources */,
+				14605A3817E900AF00B7B611 /* SceneNumbers.fountain in Resources */,
+				14605A3517E900AF00B7B611 /* MultilineAction.fountain in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,12 +549,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				146059FC17E8FCEA00B7B611 /* BaseElementTests.m in Sources */,
 				3C8CD0E614DF58C300F18DE6 /* BigFishTests.m in Sources */,
+				14605A1C17E9005300B7B611 /* IndentingTests.m in Sources */,
 				3C8CD10A14DF7CE600F18DE6 /* BrickAndSteelTests.m in Sources */,
 				3C8CD10D14DF9D9400F18DE6 /* FountainWriterTests.m in Sources */,
 				3C76B00D14E05C5C00EDDA5F /* FNScriptTests.m in Sources */,
+				14605A1F17E9005300B7B611 /* PageBreakTests.m in Sources */,
+				14605A2017E9005300B7B611 /* SceneNumberTests.m in Sources */,
+				14605A1B17E9005300B7B611 /* DialogueTests.m in Sources */,
+				14605A2317E9005300B7B611 /* TransitionTests.m in Sources */,
 				3CB1978214E0D50A00FC672F /* SyntaxTests.m in Sources */,
 				14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */,
+				14605A1A17E9005300B7B611 /* CenteredTests.m in Sources */,
+				14605A1D17E9005300B7B611 /* MultilineActionTests.m in Sources */,
+				14605A1917E9005300B7B611 /* BoneyardTests.m in Sources */,
+				14605A0217E8FE3100B7B611 /* SceneHeaderTests.m in Sources */,
+				14605A2217E9005300B7B611 /* SynopsisTests.m in Sources */,
+				14605A1E17E9005300B7B611 /* NoteTests.m in Sources */,
+				14605A2117E9005300B7B611 /* SectionHeaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
