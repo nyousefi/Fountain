@@ -42,6 +42,17 @@
 		149D634117EA93E200DA482C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149D633F17EA93E200DA482C /* Main.storyboard */; };
 		149D634417EA93E200DA482C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149D634317EA93E200DA482C /* ViewController.m */; };
 		149D634617EA93E200DA482C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149D634517EA93E200DA482C /* Images.xcassets */; };
+		149D636417EA969600DA482C /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD0FF14DF64B400F18DE6 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		149D636517EA969600DA482C /* FountainRegexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB06614DF3D76004A90E8 /* FountainRegexes.m */; };
+		149D636617EA969600DA482C /* FNScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB06214DF3D76004A90E8 /* FNScript.m */; };
+		149D636717EA969600DA482C /* FNElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB06414DF3D76004A90E8 /* FNElement.m */; };
+		149D636817EA969600DA482C /* FountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB06814DF3D76004A90E8 /* FountainParser.m */; };
+		149D636917EA969600DA482C /* FastFountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9545E41593EBA500ABBA9B /* FastFountainParser.m */; };
+		149D636A17EA969600DA482C /* FountainWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB06A14DF3D76004A90E8 /* FountainWriter.m */; };
+		149D636B17EA969600DA482C /* FNHTMLScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C95460C1594025400ABBA9B /* FNHTMLScript.m */; };
+		149D636C17EA969600DA482C /* FNPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBFF74615940D52005EC5BF /* FNPaginator.m */; };
+		149D636D17EA96A300DA482C /* ScriptCSS.css in Resources */ = {isa = PBXBuildFile; fileRef = 3CBFF74315940ACC005EC5BF /* ScriptCSS.css */; };
+		149D636E17EA96BB00DA482C /* Big Fish.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD0E214DF589E00F18DE6 /* Big Fish.fountain */; };
 		14AA1A54178F8FD400BAEED2 /* Sections-Complex.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14AA1A53178F8FD400BAEED2 /* Sections-Complex.fountain */; };
 		14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */; };
 		3C0BB02E14DF3D55004A90E8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BB02D14DF3D55004A90E8 /* Cocoa.framework */; };
@@ -58,7 +69,6 @@
 		3C76B00D14E05C5C00EDDA5F /* FNScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C76B00C14E05C5C00EDDA5F /* FNScriptTests.m */; };
 		3C8CD0E314DF589E00F18DE6 /* Big Fish.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD0E214DF589E00F18DE6 /* Big Fish.fountain */; };
 		3C8CD0E614DF58C300F18DE6 /* BigFishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD0E514DF58C300F18DE6 /* BigFishTests.m */; };
-		3C8CD10014DF64B400F18DE6 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD0FD14DF64B400F18DE6 /* License.rtf */; };
 		3C8CD10114DF64B400F18DE6 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD0FF14DF64B400F18DE6 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3C8CD10714DF7CCC00F18DE6 /* Brick And Steel.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD10614DF7CCC00F18DE6 /* Brick And Steel.txt */; };
 		3C8CD10A14DF7CE600F18DE6 /* BrickAndSteelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CD10914DF7CE600F18DE6 /* BrickAndSteelTests.m */; };
@@ -139,6 +149,7 @@
 		149D634317EA93E200DA482C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		149D634517EA93E200DA482C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		149D634C17EA93E200DA482C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		149D636F17EA98E300DA482C /* QUQFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUQFont.h; sourceTree = "<group>"; };
 		14AA1A53178F8FD400BAEED2 /* Sections-Complex.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Sections-Complex.fountain"; sourceTree = "<group>"; };
 		14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionAndSynopsisTests.h; sourceTree = "<group>"; };
 		14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionAndSynopsisTests.m; sourceTree = "<group>"; };
@@ -377,6 +388,7 @@
 		3C0BB03314DF3D55004A90E8 /* Fountain */ = {
 			isa = PBXGroup;
 			children = (
+				149D636F17EA98E300DA482C /* QUQFont.h */,
 				3C0BB06514DF3D76004A90E8 /* FountainRegexes.h */,
 				3C0BB06614DF3D76004A90E8 /* FountainRegexes.m */,
 				3C0BB06114DF3D76004A90E8 /* FNScript.h */,
@@ -528,6 +540,11 @@
 			attributes = {
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Nima Yousefi";
+				TargetAttributes = {
+					3C0BB04914DF3D56004A90E8 = {
+						TestTargetID = 3C0BB02814DF3D55004A90E8;
+					};
+				};
 			};
 			buildConfigurationList = 3C0BB02314DF3D55004A90E8 /* Build configuration list for PBXProject "Fountain" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -554,6 +571,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149D636E17EA96BB00DA482C /* Big Fish.fountain in Resources */,
+				149D636D17EA96A300DA482C /* ScriptCSS.css in Resources */,
 				149D634617EA93E200DA482C /* Images.xcassets in Resources */,
 				149D633817EA93E200DA482C /* InfoPlist.strings in Resources */,
 				149D634117EA93E200DA482C /* Main.storyboard in Resources */,
@@ -566,7 +585,6 @@
 			files = (
 				3CBFF74215940A40005EC5BF /* Big Fish.fountain in Resources */,
 				3C0BB03814DF3D55004A90E8 /* InfoPlist.strings in Resources */,
-				3C8CD10014DF64B400F18DE6 /* License.rtf in Resources */,
 				3CBFF73C159407CC005EC5BF /* Application.xib in Resources */,
 				3CBFF74415940ACC005EC5BF /* ScriptCSS.css in Resources */,
 			);
@@ -620,6 +638,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149D636417EA969600DA482C /* RegexKitLite.m in Sources */,
+				149D636517EA969600DA482C /* FountainRegexes.m in Sources */,
+				149D636617EA969600DA482C /* FNScript.m in Sources */,
+				149D636717EA969600DA482C /* FNElement.m in Sources */,
+				149D636817EA969600DA482C /* FountainParser.m in Sources */,
+				149D636917EA969600DA482C /* FastFountainParser.m in Sources */,
+				149D636A17EA969600DA482C /* FountainWriter.m in Sources */,
+				149D636B17EA969600DA482C /* FNHTMLScript.m in Sources */,
+				149D636C17EA969600DA482C /* FNPaginator.m in Sources */,
 				149D634417EA93E200DA482C /* ViewController.m in Sources */,
 				149D633E17EA93E200DA482C /* AppDelegate.m in Sources */,
 				149D633A17EA93E200DA482C /* main.m in Sources */,
@@ -751,6 +778,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "Sample Project iOS/Sample Project iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -791,6 +819,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "Sample Project iOS/Sample Project iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -873,12 +902,14 @@
 		3C0BB05F14DF3D56004A90E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sample Project Mac.app/Contents/MacOS/Sample Project Mac";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "FountainTests/FountainTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -886,12 +917,14 @@
 		3C0BB06014DF3D56004A90E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sample Project Mac.app/Contents/MacOS/Sample Project Mac";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "FountainTests/FountainTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

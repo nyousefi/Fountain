@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "FNScript.h"
+#import "FNHTMLScript.h"
 
 @interface ViewController ()
 
@@ -17,7 +19,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    // Get the sample file: Big Fish.fountain
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Big Fish.fountain" ofType:nil];
+    FNScript *script = [[FNScript alloc] initWithFile:path];
+    FNHTMLScript *htmlScript = [[FNHTMLScript alloc] initWithScript:script];
+    
+    // Load the HTML into the WebView
+    [self.webView loadHTMLString:[htmlScript html] baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning
