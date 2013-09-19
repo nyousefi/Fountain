@@ -65,6 +65,13 @@ All code is copyright Nima Yousefi &amp; John August. Released under an MIT lice
 
 See the included LICENSE file for legal jargon.
 
+## Contact
+
+If you have any questions, or just want to say 'hi', you can catch me on Twitter [@nyousefi](http://twitter.com/nyousefi).
+
+Follow Qapps on Twitter [@qapps](http://twitter.com/qapps).
+
+
 ## Credits
 
 ### Fountain Format
