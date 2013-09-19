@@ -38,13 +38,13 @@
 
 - (void)testSingleLineBoneyard
 {
-	NSUInteger index = 3;
+	NSUInteger index = 1;
 	STAssertEqualObjects([self elementTypeAtIndex:index], @"Boneyard", [self errorForIndex:index]);
 }
 
 - (void)testMultiLineBoneyard
 {
-    NSUInteger index = 6;
+    NSUInteger index = 2;
 	STAssertEqualObjects([self elementTypeAtIndex:index], @"Boneyard", [self errorForIndex:index]);
 }
 

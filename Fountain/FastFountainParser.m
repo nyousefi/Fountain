@@ -32,11 +32,38 @@ static NSString * const kContentPattern = @"";
 
 @interface FastFountainParser ()
 
-- (void)parseContents:(NSString *)contents;
-
 @end
 
 @implementation FastFountainParser
+
+- (id)initWithString:(NSString *)string
+{
+    self = [super init];
+    if (self) {
+        _elements = [[NSMutableArray alloc] init];
+        _titlePage = [[NSMutableArray alloc] init];
+        [self parseContents:string];
+    }
+    return self;
+}
+
+- (id)initWithFile:(NSString *)filePath
+{
+    self = [super init];
+    if (self) {
+        _elements = [[NSMutableArray alloc] init];
+        _titlePage = [[NSMutableArray alloc] init];
+        
+        NSError *error = nil;
+        NSString *contents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+        if (error) {
+            NSLog(@"Couldn't read the file %@", filePath);
+            return self;
+        }
+        [self parseContents:contents];
+    }
+    return self;
+}
 
 - (void)parseContents:(NSString *)contents
 {
@@ -122,7 +149,6 @@ static NSString * const kContentPattern = @"";
     contents = [NSString stringWithFormat:@"\n%@", contents];
     NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     
-    NSSet *transitions = [NSSet setWithObjects:@"CUT TO:", @"FADE OUT.", @"SMASH CUT TO:", @"CUT TO BLACK.", @"MATCH CUT TO:", @"DISSOLVE TO:", @"FADE TO:", @"WIPE TO:", nil];
     NSUInteger newlinesBefore = 0;
     NSUInteger index = -1;
     BOOL isCommentBlock = NO;
@@ -132,7 +158,7 @@ static NSString * const kContentPattern = @"";
         index++;
         
         // Blank line.
-        if (([line isEqualToString:@""] || [line isMatchedByRegex:@"^\\s*$"]) && !isCommentBlock) {
+        if (([line isEqualToString:@""]) && !isCommentBlock) {
             isInsideDialogueBlock = NO;
             newlinesBefore++;
             continue;
@@ -184,7 +210,7 @@ static NSString * const kContentPattern = @"";
         }
         
         // Synopsis -- a single '=' at the start of the line
-        if ([[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '=') {
+        if ([[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] > 0 && [[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '=') {
             NSRange markupRange = [line rangeOfRegex:@"^\\s*={1}"];
             NSString *text = [line stringByReplacingCharactersInRange:markupRange withString:@""];
             FNElement *element = [FNElement elementOfType:@"Synopsis" text:text];
@@ -201,7 +227,7 @@ static NSString * const kContentPattern = @"";
         }
         
         // Section heading -- one or more '#' at the start of the line, the number of chars == the section depth
-        if ([[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '#') {
+        if ([[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] > 0 && [[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] characterAtIndex:0] == '#') {
             newlinesBefore = 0;
             
             // Get the depth of the section
@@ -244,7 +270,7 @@ static NSString * const kContentPattern = @"";
             continue;
         }
         
-        if ([line isMatchedByRegex:@"^(INT|EXT|EST|I\\/??E)[\\.\\-\\s]" options:RKLCaseless inRange:NSMakeRange(0, line.length) error:nil]) {
+        if ([line isMatchedByRegex:@"^(INT|EXT|EST|(I|INT)\\.?\\/(E|EXT)\\.?)[\\.\\-\\s]" options:RKLCaseless inRange:NSMakeRange(0, line.length) error:nil]) {
             newlinesBefore = 0;
             NSString *sceneNumber = nil;
             NSString *text = nil;
@@ -268,7 +294,15 @@ static NSString * const kContentPattern = @"";
         // Transitions
         // We need to trim leading whitespace from the line because whitespace at the end of the line
         // nullifies Transitions.
+        if ([line isMatchedByRegex:@"[^a-z]*TO:$"]) {
+            newlinesBefore = 0;
+            FNElement *element = [FNElement elementOfType:@"Transition" text:line];
+            [self.elements addObject:element];
+            continue;
+        }
+        
         NSString *lineWithTrimmedLeading = [line stringByReplacingOccurrencesOfRegex:@"^\\s*" withString:@""];
+        NSSet *transitions = [NSSet setWithArray:@[@"FADE OUT.", @"CUT TO BLACK.", @"FADE TO BLACK."]];
         if ([transitions containsObject:lineWithTrimmedLeading]) {
             newlinesBefore = 0;
             FNElement *element = [FNElement elementOfType:@"Transition" text:line];
@@ -299,7 +333,7 @@ static NSString * const kContentPattern = @"";
         }
         
         // Character
-        if (newlinesBefore > 0 && [line isMatchedByRegex:@"^[^a-z]+$"]) {
+        if (newlinesBefore > 0 && [line isMatchedByRegex:@"^[^a-z]+(\\(cont'd\\))?$"]) {
             // look ahead to see if the next line is blank
             NSUInteger nextIndex = index + 1;
             if (nextIndex < [lines count]) {
@@ -375,35 +409,6 @@ static NSString * const kContentPattern = @"";
             continue;
         }
     }
-}
-
-- (id)initWithString:(NSString *)string
-{
-    self = [super init];
-    if (self) {
-        _elements = [[NSMutableArray alloc] init];
-        _titlePage = [[NSMutableArray alloc] init];
-        [self parseContents:string];
-    }
-    return self;
-}
-
-- (id)initWithFile:(NSString *)filePath
-{
-    self = [super init];
-    if (self) {
-        _elements = [[NSMutableArray alloc] init];
-        _titlePage = [[NSMutableArray alloc] init];
-        
-        NSError *error = nil;
-        NSString *contents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-        if (error) {
-            NSLog(@"Couldn't read the file %@", filePath);
-            return self;
-        }        
-        [self parseContents:contents];
-    }    
-    return self;
 }
 
 @end

@@ -63,7 +63,7 @@
 - (void)testNotTransitionWithTrailingSpaces
 {
 	NSUInteger index = 4;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Transition", [self errorForIndex:index]);
+	STAssertFalse([[self elementTypeAtIndex:index] isEqualToString:@"Transition"], [self errorForIndex:index]);
 }
 
 - (void)testCustomTransitionEndingWithTo

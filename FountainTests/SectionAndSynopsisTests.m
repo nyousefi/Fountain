@@ -22,7 +22,7 @@
 {
     [super setUp];
     
-    NSString *filename = @"Sections";
+    NSString *filename = @"Sections-Complex";
     NSString *path = [self pathForFile:filename];
     self.script = [[FNScript alloc] initWithFile:path];
 }

@@ -79,13 +79,13 @@
 - (void)testCueWithCaret
 {
 	NSUInteger index = 18;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Character", [self errorForIndex:index]);
 }
 
 - (void)testMatchingDualDialogue
 {
 	NSUInteger index = 16;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Character", [self errorForIndex:index]);
 }
 
 - (void)testRemovalOfCaretMarkup
@@ -121,43 +121,31 @@
 - (void)testDialogue
 {
 	NSUInteger index = 1;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
 }
 
 - (void)testDialogueWithLineBreaks
 {
 	NSUInteger index = 12;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
-
-//	index = 31;
-//	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
-//
-//	index = 33;
-//	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
 }
 
 - (void)testDialogueAllCaps
 {
 	NSUInteger index = 8;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
 }
 
 - (void)testDialogueWithEmptyLineInTheMiddle
 {
-	NSUInteger index = 16;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
-
-//	index = 77;
-//	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
-//
-//	index = 79;
-//	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
+	NSUInteger index = 26;
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
 }
 
 - (void)testDialogueCanBeIndented
 {
 	NSUInteger index = 29;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Parenthetical", [self errorForIndex:index]);
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Dialogue", [self errorForIndex:index]);
 }
 
 @end

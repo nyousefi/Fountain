@@ -33,7 +33,7 @@
 		14605A3917E900AF00B7B611 /* SectionHeaders.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2D17E900AF00B7B611 /* SectionHeaders.fountain */; };
 		14605A3A17E900AF00B7B611 /* Synopses.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2E17E900AF00B7B611 /* Synopses.fountain */; };
 		14605A3B17E900AF00B7B611 /* Transitions.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14605A2F17E900AF00B7B611 /* Transitions.fountain */; };
-		14AA1A54178F8FD400BAEED2 /* Sections.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14AA1A53178F8FD400BAEED2 /* Sections.fountain */; };
+		14AA1A54178F8FD400BAEED2 /* Sections-Complex.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 14AA1A53178F8FD400BAEED2 /* Sections-Complex.fountain */; };
 		14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */; };
 		3C0BB02E14DF3D55004A90E8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BB02D14DF3D55004A90E8 /* Cocoa.framework */; };
 		3C0BB03814DF3D55004A90E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C0BB03614DF3D55004A90E8 /* InfoPlist.strings */; };
@@ -57,7 +57,6 @@
 		3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */; };
 		3C9545E51593EBA500ABBA9B /* FastFountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9545E41593EBA500ABBA9B /* FastFountainParser.m */; };
 		3C95460D1594025400ABBA9B /* FNHTMLScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C95460C1594025400ABBA9B /* FNHTMLScript.m */; };
-		3CB1978214E0D50A00FC672F /* SyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB1978114E0D50A00FC672F /* SyntaxTests.m */; };
 		3CBFF73C159407CC005EC5BF /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CBFF73B159407CC005EC5BF /* Application.xib */; };
 		3CBFF73F15940815005EC5BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBFF73E15940815005EC5BF /* AppDelegate.m */; };
 		3CBFF74115940860005EC5BF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBFF74015940860005EC5BF /* WebKit.framework */; };
@@ -116,7 +115,7 @@
 		14605A2D17E900AF00B7B611 /* SectionHeaders.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SectionHeaders.fountain; sourceTree = "<group>"; };
 		14605A2E17E900AF00B7B611 /* Synopses.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Synopses.fountain; sourceTree = "<group>"; };
 		14605A2F17E900AF00B7B611 /* Transitions.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Transitions.fountain; sourceTree = "<group>"; };
-		14AA1A53178F8FD400BAEED2 /* Sections.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sections.fountain; sourceTree = "<group>"; };
+		14AA1A53178F8FD400BAEED2 /* Sections-Complex.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Sections-Complex.fountain"; sourceTree = "<group>"; };
 		14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionAndSynopsisTests.h; sourceTree = "<group>"; };
 		14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionAndSynopsisTests.m; sourceTree = "<group>"; };
 		3C0BB02914DF3D55004A90E8 /* Fountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,8 +159,6 @@
 		3C9545E41593EBA500ABBA9B /* FastFountainParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastFountainParser.m; sourceTree = "<group>"; };
 		3C95460B1594025400ABBA9B /* FNHTMLScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHTMLScript.h; sourceTree = "<group>"; };
 		3C95460C1594025400ABBA9B /* FNHTMLScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHTMLScript.m; sourceTree = "<group>"; };
-		3CB1978014E0D50A00FC672F /* SyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxTests.h; sourceTree = "<group>"; };
-		3CB1978114E0D50A00FC672F /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
 		3CBFF73B159407CC005EC5BF /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
 		3CBFF73D15940815005EC5BF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CBFF73E15940815005EC5BF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -222,6 +219,8 @@
 				14605A0E17E9005300B7B611 /* NoteTests.m */,
 				14605A1517E9005300B7B611 /* SynopsisTests.h */,
 				14605A1617E9005300B7B611 /* SynopsisTests.m */,
+				14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */,
+				14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */,
 			);
 			name = "Element Tests";
 			sourceTree = "<group>";
@@ -260,14 +259,10 @@
 		14605A3D17E908CB00B7B611 /* Legacy Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3CB1978014E0D50A00FC672F /* SyntaxTests.h */,
-				3CB1978114E0D50A00FC672F /* SyntaxTests.m */,
 				3C76B00B14E05C5C00EDDA5F /* FNScriptTests.h */,
 				3C76B00C14E05C5C00EDDA5F /* FNScriptTests.m */,
 				3C8CD10B14DF9D9400F18DE6 /* FountainWriterTests.h */,
 				3C8CD10C14DF9D9400F18DE6 /* FountainWriterTests.m */,
-				14AA1A55178F901F00BAEED2 /* SectionAndSynopsisTests.h */,
-				14AA1A56178F901F00BAEED2 /* SectionAndSynopsisTests.m */,
 			);
 			name = "Legacy Tests";
 			sourceTree = "<group>";
@@ -376,7 +371,7 @@
 				3C8CD0E214DF589E00F18DE6 /* Big Fish.fountain */,
 				3C8CD10614DF7CCC00F18DE6 /* Brick And Steel.txt */,
 				3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */,
-				14AA1A53178F8FD400BAEED2 /* Sections.fountain */,
+				14AA1A53178F8FD400BAEED2 /* Sections-Complex.fountain */,
 				146059FD17E8FDED00B7B611 /* Element specific */,
 			);
 			name = "Test Files";
@@ -498,7 +493,7 @@
 				3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */,
 				14605A3117E900AF00B7B611 /* CenteredText.fountain in Resources */,
 				14605A3A17E900AF00B7B611 /* Synopses.fountain in Resources */,
-				14AA1A54178F8FD400BAEED2 /* Sections.fountain in Resources */,
+				14AA1A54178F8FD400BAEED2 /* Sections-Complex.fountain in Resources */,
 				14605A3917E900AF00B7B611 /* SectionHeaders.fountain in Resources */,
 				14605A3717E900AF00B7B611 /* PageBreaks.fountain in Resources */,
 				14605A3217E900AF00B7B611 /* Dialogue.fountain in Resources */,
@@ -559,7 +554,6 @@
 				14605A2017E9005300B7B611 /* SceneNumberTests.m in Sources */,
 				14605A1B17E9005300B7B611 /* DialogueTests.m in Sources */,
 				14605A2317E9005300B7B611 /* TransitionTests.m in Sources */,
-				3CB1978214E0D50A00FC672F /* SyntaxTests.m in Sources */,
 				14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */,
 				14605A1A17E9005300B7B611 /* CenteredTests.m in Sources */,
 				14605A1D17E9005300B7B611 /* MultilineActionTests.m in Sources */,

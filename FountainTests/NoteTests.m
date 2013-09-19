@@ -38,14 +38,14 @@
 
 - (void)testSingleLineNote
 {
-	NSUInteger index = 3;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Note", [self errorForIndex:index]);
+	NSUInteger index = 1;
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Comment", [self errorForIndex:index]);
 }
 
-- (void)testMuliLineNote
+- (void)testMultiLineNote
 {
-	NSUInteger index = 6;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Note", [self errorForIndex:index]);
+	NSUInteger index = 2;
+	STAssertEqualObjects([self elementTypeAtIndex:index], @"Comment", [self errorForIndex:index]);
 }
 
 @end
