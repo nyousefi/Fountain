@@ -23,6 +23,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QUQFont.h"
 
 @class FNScript, FNElement;
 
@@ -39,6 +40,6 @@
 + (NSInteger)spaceBeforeForElement:(FNElement *)element;
 + (NSInteger)leftMarginForElement:(FNElement *)element;
 + (NSInteger)widthForElement:(FNElement *)element;
-+ (NSInteger)heightForString:(NSString *)string font:(NSFont *)font maxWidth:(NSInteger)maxWidth lineHeight:(NSInteger)lineHeight;
++ (NSInteger)heightForString:(NSString *)string font:(QUQFont *)font maxWidth:(NSInteger)maxWidth lineHeight:(NSInteger)lineHeight;
 
 @end

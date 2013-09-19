@@ -86,7 +86,7 @@
         NSInteger oneInchBuffer = 72;
         NSInteger maxPageHeight =  pageSize.height - round(oneInchBuffer * 2.01);
         
-        NSFont *font = [NSFont fontWithName:@"Courier" size:12];
+        QUQFont *font = [QUQFont fontWithName:@"Courier" size:12];
         NSInteger lineHeight = font.pointSize;
         
         NSInteger spaceBefore;
@@ -519,18 +519,19 @@
  in their docs, but we have to do this because getting the size of the layout box (Apple's recommended
  method) doesn't take into account line height, so text won't display correctly when we try and print.
  */
-+ (NSInteger)heightForString:(NSString *)string font:(NSFont *)font maxWidth:(NSInteger)maxWidth lineHeight:(NSInteger)lineHeight
++ (NSInteger)heightForString:(NSString *)string font:(QUQFont *)font maxWidth:(NSInteger)maxWidth lineHeight:(NSInteger)lineHeight
 {
-    /* 
+    /*
      This method won't work on iOS. For iOS you'll need to adjust the font size to 80% and use the NSString instance 
      method - (CGSize)sizeWithFont:constrainedToSize:lineBreakMode:
      */
     
     // set up the layout manager
     NSTextStorage   *textStorage   = [[NSTextStorage alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
-    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(maxWidth, INT_MAX)];
+    NSTextContainer *textContainer = [[NSTextContainer alloc] init];
     NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
     
+    [textContainer setSize:CGSizeMake(maxWidth, MAXFLOAT)];
     [layoutManager addTextContainer:textContainer];
     [textStorage addLayoutManager:layoutManager];
     [textContainer setLineFragmentPadding:0.0];

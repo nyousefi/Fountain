@@ -23,12 +23,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QUQFont.h"
 
 @class FNScript;
 
 @interface FNHTMLScript : NSObject
 
-@property (strong, nonatomic) NSFont *font;
+@property (strong, nonatomic) QUQFont *font;
 @property (strong, nonatomic) FNScript *script;
 
 - (id)initWithScript:(FNScript *)aScript;

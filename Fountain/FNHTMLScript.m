@@ -43,7 +43,7 @@
     self = [super init];
     if (self) {
         _script = aScript;
-        _font = [NSFont fontWithName:@"Courier" size:13];
+        _font = [QUQFont fontWithName:@"Courier" size:13];
     }
     return self;
 }
@@ -184,7 +184,7 @@
         NSArray *elementsOnPage = [paginator pageAtIndex:pageIndex];
         
         // Print what page we're on -- used for page jumper
-        [body appendFormat:@"<p class='page-break'>%ld.</p>\n", pageIndex+1];
+        [body appendFormat:@"<p class='page-break'>%d.</p>\n", (int)pageIndex+1];
     
         for (FNElement *element in elementsOnPage) {
             if ([ignoringTypes containsObject:element.elementType]) {

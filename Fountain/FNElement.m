@@ -56,7 +56,7 @@
         [typeOutput appendString:@" (dual dialogue)"];
     }
     else if (self.sectionDepth) {
-        [typeOutput appendFormat:@" (%ld)", self.sectionDepth];
+        [typeOutput appendFormat:@" (%ud)", (unsigned int)self.sectionDepth];
     }
     
     return [NSString stringWithFormat:@"%@: %@", typeOutput, textOutput];
