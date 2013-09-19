@@ -528,10 +528,13 @@
     
     // set up the layout manager
     NSTextStorage   *textStorage   = [[NSTextStorage alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
-    NSTextContainer *textContainer = [[NSTextContainer alloc] init];
     NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
-    
+#if TARGET_OS_IPHONE
+    NSTextContainer *textContainer = [[NSTextContainer alloc] init];
     [textContainer setSize:CGSizeMake(maxWidth, MAXFLOAT)];
+#else
+    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(maxWidth, MAXFLOAT)];
+#endif
     [layoutManager addTextContainer:textContainer];
     [textStorage addLayoutManager:layoutManager];
     [textContainer setLineFragmentPadding:0.0];

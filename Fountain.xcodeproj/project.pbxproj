@@ -158,10 +158,10 @@
 		3C0BB03014DF3D55004A90E8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3C0BB03114DF3D55004A90E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3C0BB03214DF3D55004A90E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3C0BB03514DF3D55004A90E8 /* Fountain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fountain-Info.plist"; sourceTree = "<group>"; };
+		3C0BB03514DF3D55004A90E8 /* Fountain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fountain-Info.plist"; path = "../Sample Project Mac/Fountain-Info.plist"; sourceTree = "<group>"; };
 		3C0BB03714DF3D55004A90E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3C0BB03914DF3D55004A90E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3C0BB03B14DF3D55004A90E8 /* Fountain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fountain-Prefix.pch"; sourceTree = "<group>"; };
+		3C0BB03914DF3D55004A90E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "../Sample Project Mac/main.m"; sourceTree = "<group>"; };
+		3C0BB03B14DF3D55004A90E8 /* Fountain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Fountain-Prefix.pch"; path = "../Sample Project Mac/Fountain-Prefix.pch"; sourceTree = "<group>"; };
 		3C0BB04A14DF3D56004A90E8 /* FountainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FountainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0BB04B14DF3D56004A90E8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		3C0BB05214DF3D56004A90E8 /* FountainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FountainTests-Info.plist"; sourceTree = "<group>"; };
@@ -194,9 +194,9 @@
 		3C9545E41593EBA500ABBA9B /* FastFountainParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastFountainParser.m; sourceTree = "<group>"; };
 		3C95460B1594025400ABBA9B /* FNHTMLScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHTMLScript.h; sourceTree = "<group>"; };
 		3C95460C1594025400ABBA9B /* FNHTMLScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHTMLScript.m; sourceTree = "<group>"; };
-		3CBFF73B159407CC005EC5BF /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
-		3CBFF73D15940815005EC5BF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3CBFF73E15940815005EC5BF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3CBFF73B159407CC005EC5BF /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Application.xib; path = "../Sample Project Mac/Application.xib"; sourceTree = "<group>"; };
+		3CBFF73D15940815005EC5BF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../Sample Project Mac/AppDelegate.h"; sourceTree = "<group>"; };
+		3CBFF73E15940815005EC5BF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../Sample Project Mac/AppDelegate.m"; sourceTree = "<group>"; };
 		3CBFF74015940860005EC5BF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3CBFF74315940ACC005EC5BF /* ScriptCSS.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ScriptCSS.css; sourceTree = "<group>"; };
 		3CBFF74515940D52005EC5BF /* FNPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNPaginator.h; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				3C8CD0FC14DF64B300F18DE6 /* RegexKitLite */,
 				3C0BB03314DF3D55004A90E8 /* Fountain */,
 				3C0BB05014DF3D56004A90E8 /* FountainTests */,
-				3CBFF73915940793005EC5BF /* Sample Project */,
+				3CBFF73915940793005EC5BF /* Sample Project Mac */,
 				149D633317EA93E200DA482C /* Sample Project iOS */,
 				3C0BB02C14DF3D55004A90E8 /* Frameworks */,
 				3C0BB02A14DF3D55004A90E8 /* Products */,
@@ -464,7 +464,7 @@
 			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
-		3CBFF73915940793005EC5BF /* Sample Project */ = {
+		3CBFF73915940793005EC5BF /* Sample Project Mac */ = {
 			isa = PBXGroup;
 			children = (
 				3CBFF73B159407CC005EC5BF /* Application.xib */,
@@ -472,7 +472,7 @@
 				3CBFF73E15940815005EC5BF /* AppDelegate.m */,
 				3C0BB03414DF3D55004A90E8 /* Supporting Files */,
 			);
-			name = "Sample Project";
+			name = "Sample Project Mac";
 			path = Fountain;
 			sourceTree = "<group>";
 		};
@@ -729,6 +729,7 @@
 				3C0BB03714DF3D55004A90E8 /* en */,
 			);
 			name = InfoPlist.strings;
+			path = "../Sample Project Mac";
 			sourceTree = "<group>";
 		};
 		3C0BB05314DF3D56004A90E8 /* InfoPlist.strings */ = {
@@ -878,8 +879,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
-				INFOPLIST_FILE = "Fountain/Fountain-Info.plist";
+				GCC_PREFIX_HEADER = "Sample Project Mac/Fountain-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Sample Project Mac/Fountain-Info.plist";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -891,8 +892,8 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
-				INFOPLIST_FILE = "Fountain/Fountain-Info.plist";
+				GCC_PREFIX_HEADER = "Sample Project Mac/Fountain-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Sample Project Mac/Fountain-Info.plist";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -939,6 +940,7 @@
 				149D635B17EA93E200DA482C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C0BB02314DF3D55004A90E8 /* Build configuration list for PBXProject "Fountain" */ = {
 			isa = XCConfigurationList;
