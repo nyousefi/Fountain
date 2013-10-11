@@ -23,7 +23,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QUQFont.h"
+
+#if TARGET_OS_IPHONE
+    #define QUQFont UIFont
+#else
+    #define QUQFont NSFont
+#endif
 
 @class FNScript;
 
