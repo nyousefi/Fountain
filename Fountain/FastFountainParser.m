@@ -337,6 +337,7 @@ static NSString * const kContentPattern = @"";
             continue;
         }
         
+        // Scene Headings
         if (newlinesBefore > 0 && [line isMatchedByRegex:@"^(INT|EXT|EST|(I|INT)\\.?\\/(E|EXT)\\.?)[\\.\\-\\s][^\\n]+$" options:RKLCaseless inRange:NSMakeRange(0, line.length) error:nil]) {
             newlinesBefore = 0;
             NSString *sceneNumber = nil;
@@ -462,6 +463,11 @@ static NSString * const kContentPattern = @"";
             // Get the previous action line and merge this one into it
             NSUInteger lastIndex = [self.elements count] - 1;
             FNElement *previousElement = (self.elements)[lastIndex];
+            // Scene Heading must be surrounded by blank lines
+            if ([previousElement.elementType isEqualToString:@"Scene Heading"]) {
+                previousElement.elementType = @"Action";
+            }            
+            
             NSString *text = [NSString stringWithFormat:@"%@\n%@", previousElement.elementText, line];
             previousElement.elementText = text;
             [self.elements removeObjectAtIndex:lastIndex];
