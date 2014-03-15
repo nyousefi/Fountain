@@ -76,6 +76,8 @@
 		3C8CD10F14DFA9D700F18DE6 /* Simple.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3C8CD10E14DFA9D700F18DE6 /* Simple.fountain */; };
 		3C9545E51593EBA500ABBA9B /* FastFountainParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9545E41593EBA500ABBA9B /* FastFountainParser.m */; };
 		3C95460D1594025400ABBA9B /* FNHTMLScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C95460C1594025400ABBA9B /* FNHTMLScript.m */; };
+		3CA5EE5618D3D76C00458AAF /* ForcedElementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5EE5518D3D76C00458AAF /* ForcedElementTests.m */; };
+		3CA5EE5818D3D7B400458AAF /* ForcedElements.fountain in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5EE5718D3D7B400458AAF /* ForcedElements.fountain */; };
 		3CBFF73C159407CC005EC5BF /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CBFF73B159407CC005EC5BF /* Application.xib */; };
 		3CBFF73F15940815005EC5BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBFF73E15940815005EC5BF /* AppDelegate.m */; };
 		3CBFF74115940860005EC5BF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBFF74015940860005EC5BF /* WebKit.framework */; };
@@ -194,6 +196,8 @@
 		3C9545E41593EBA500ABBA9B /* FastFountainParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastFountainParser.m; sourceTree = "<group>"; };
 		3C95460B1594025400ABBA9B /* FNHTMLScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHTMLScript.h; sourceTree = "<group>"; };
 		3C95460C1594025400ABBA9B /* FNHTMLScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHTMLScript.m; sourceTree = "<group>"; };
+		3CA5EE5518D3D76C00458AAF /* ForcedElementTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForcedElementTests.m; sourceTree = "<group>"; };
+		3CA5EE5718D3D7B400458AAF /* ForcedElements.fountain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ForcedElements.fountain; sourceTree = "<group>"; };
 		3CBFF73B159407CC005EC5BF /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Application.xib; path = "../Sample Project Mac/Application.xib"; sourceTree = "<group>"; };
 		3CBFF73D15940815005EC5BF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../Sample Project Mac/AppDelegate.h"; sourceTree = "<group>"; };
 		3CBFF73E15940815005EC5BF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../Sample Project Mac/AppDelegate.m"; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 			children = (
 				146059FA17E8FCEA00B7B611 /* BaseElementTests.h */,
 				146059FB17E8FCEA00B7B611 /* BaseElementTests.m */,
+				3CA5EE5518D3D76C00458AAF /* ForcedElementTests.m */,
 				14605A0017E8FE3100B7B611 /* SceneHeaderTests.h */,
 				14605A0117E8FE3100B7B611 /* SceneHeaderTests.m */,
 				14605A1117E9005300B7B611 /* SceneNumberTests.h */,
@@ -273,6 +278,7 @@
 		146059FD17E8FDED00B7B611 /* Element specific */ = {
 			isa = PBXGroup;
 			children = (
+				3CA5EE5718D3D7B400458AAF /* ForcedElements.fountain */,
 				146059FE17E8FE1B00B7B611 /* SceneHeaders.fountain */,
 				14605A2C17E900AF00B7B611 /* SceneNumbers.fountain */,
 				14605A2F17E900AF00B7B611 /* Transitions.fountain */,
@@ -538,7 +544,7 @@
 		3C0BB02014DF3D55004A90E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Nima Yousefi";
 				TargetAttributes = {
 					3C0BB04914DF3D56004A90E8 = {
@@ -599,6 +605,7 @@
 				3C0BB05514DF3D56004A90E8 /* InfoPlist.strings in Resources */,
 				3C8CD0E314DF589E00F18DE6 /* Big Fish.fountain in Resources */,
 				3C8CD10714DF7CCC00F18DE6 /* Brick And Steel.txt in Resources */,
+				3CA5EE5818D3D7B400458AAF /* ForcedElements.fountain in Resources */,
 				14605A3417E900AF00B7B611 /* Indenting.fountain in Resources */,
 				14605A3B17E900AF00B7B611 /* Transitions.fountain in Resources */,
 				146059FF17E8FE1B00B7B611 /* SceneHeaders.fountain in Resources */,
@@ -685,6 +692,7 @@
 				14605A2017E9005300B7B611 /* SceneNumberTests.m in Sources */,
 				14605A1B17E9005300B7B611 /* DialogueTests.m in Sources */,
 				14605A2317E9005300B7B611 /* TransitionTests.m in Sources */,
+				3CA5EE5618D3D76C00458AAF /* ForcedElementTests.m in Sources */,
 				14AA1A57178F901F00BAEED2 /* SectionAndSynopsisTests.m in Sources */,
 				14605A1A17E9005300B7B611 /* CenteredTests.m in Sources */,
 				14605A1D17E9005300B7B611 /* MultilineActionTests.m in Sources */,
@@ -746,7 +754,6 @@
 		149D635A17EA93E200DA482C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -790,7 +797,6 @@
 		149D635B17EA93E200DA482C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -833,7 +839,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -848,6 +859,9 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -859,7 +873,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -868,6 +887,9 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
@@ -878,6 +900,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample Project Mac/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Sample Project Mac/Fountain-Info.plist";
@@ -891,6 +914,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample Project Mac/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Sample Project Mac/Fountain-Info.plist";
@@ -905,9 +929,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sample Project Mac.app/Contents/MacOS/Sample Project Mac";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
+				GCC_PREFIX_HEADER = "Sample Project Mac/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "FountainTests/FountainTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -920,9 +945,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sample Project Mac.app/Contents/MacOS/Sample Project Mac";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Fountain/Fountain-Prefix.pch";
+				GCC_PREFIX_HEADER = "Sample Project Mac/Fountain-Prefix.pch";
 				INFOPLIST_FILE = "FountainTests/FountainTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

@@ -102,24 +102,21 @@
 	STAssertFalse([[self elementTypeAtIndex:index] isEqualToString:@"Scene Heading"], [self errorForIndex:index]);
 }
 
-- (void)testRequiresBlockLinesBeforeAndAfter
+- (void)testRequiresBlankLinesBeforeAndAfter
 {
 	NSUInteger index = 16;
-	STAssertFalse([[self elementTypeAtIndex:index] isEqualToString:@"Scene Heading"], [self errorForIndex:index]);
-	
-	index = 17;
 	STAssertFalse([[self elementTypeAtIndex:index] isEqualToString:@"Scene Heading"], [self errorForIndex:index]);
 }
 
 - (void)testNeedsSeparatorAfterPrefix
 {
-	NSUInteger index = 18;
+	NSUInteger index = 17;
 	STAssertFalse([[self elementTypeAtIndex:index] isEqualToString:@"Scene Heading"], [self errorForIndex:index]);
 }
 
 - (void)testNoCaps
 {
-	NSUInteger index = 19;
+	NSUInteger index = 18;
 	STAssertTrue([[self elementTypeAtIndex:index] isEqualToString:@"Scene Heading"], [self errorForIndex:index]);
 }
 

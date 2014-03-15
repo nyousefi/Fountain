@@ -42,10 +42,4 @@
 	STAssertEqualObjects([self elementTypeAtIndex:index], @"Comment", [self errorForIndex:index]);
 }
 
-- (void)testMultiLineNote
-{
-	NSUInteger index = 2;
-	STAssertEqualObjects([self elementTypeAtIndex:index], @"Comment", [self errorForIndex:index]);
-}
-
 @end

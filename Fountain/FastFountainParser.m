@@ -157,6 +157,73 @@ static NSString * const kContentPattern = @"";
     for (NSString *line in lines) {
         index++;
         
+        // If the line starts with a tilde and the previous element was a
+		// lyric element, then we keep making lyrics.
+		if ([line length] > 0 && [line characterAtIndex:0] == '~') {
+            
+            FNElement *lastElement = [self.elements lastObject];
+			
+            if (!lastElement) {
+                FNElement *element = [FNElement elementOfType:@"Lyrics" text:line];
+                [self.elements addObject:element];
+                newlinesBefore = 0;
+                continue;
+            }
+			
+			if ([lastElement.elementType isEqualToString:@"Lyrics"] && newlinesBefore > 0) {
+                FNElement *element = [FNElement elementOfType:@"Lyrics" text:@" "];
+                [self.elements addObject:element];
+            }
+            
+            FNElement *element = [FNElement elementOfType:@"Lyrics" text:line];
+            [self.elements addObject:element];
+            newlinesBefore = 0;
+            continue;
+		}
+        
+        if ([line length] > 0 && [line characterAtIndex:0] == '!') {
+            FNElement *element = [FNElement elementOfType:@"Action" text:line];
+            [self.elements addObject:element];
+            newlinesBefore = 0;
+            continue;
+		}
+        
+        if ([line length] > 0 && [line characterAtIndex:0] == '@') {
+            FNElement *element = [FNElement elementOfType:@"Character" text:line];
+            [self.elements addObject:element];
+            newlinesBefore = 0;
+            isInsideDialogueBlock = YES;
+            continue;
+		}
+        
+		
+        // Need to check for "empty" lines within dialogue -- denoted by two spaces inside a dialogue block
+        if (([line isMatchedByRegex:@"^\\s{2}$"]) && isInsideDialogueBlock) {
+            newlinesBefore = 0;
+            // Check to see if the previous element was a dialogue
+            NSUInteger lastIndex = [self.elements count] - 1;
+            FNElement *previousElement = (self.elements)[lastIndex];
+            
+            if ([previousElement.elementType isEqualToString:@"Dialogue"]) {
+                NSString *text = [NSString stringWithFormat:@"%@\n%@", previousElement.elementText, line];
+                previousElement.elementText = text;
+                [self.elements removeObjectAtIndex:lastIndex];
+                [self.elements addObject:previousElement];
+            }
+            else {
+                FNElement *element = [FNElement elementOfType:@"Dialogue" text:line];
+                [self.elements addObject:element];
+            }
+            continue;
+        }
+        
+        if (([line isMatchedByRegex:@"^\\s{2,}$"])) {
+            FNElement *element = [FNElement elementOfType:@"Action" text:line];
+            [self.elements addObject:element];
+            newlinesBefore = 0;
+            continue;
+        }
+
         // Blank line.
         if (([line isEqualToString:@""]) && !isCommentBlock) {
             isInsideDialogueBlock = NO;
@@ -270,7 +337,7 @@ static NSString * const kContentPattern = @"";
             continue;
         }
         
-        if ([line isMatchedByRegex:@"^(INT|EXT|EST|(I|INT)\\.?\\/(E|EXT)\\.?)[\\.\\-\\s]" options:RKLCaseless inRange:NSMakeRange(0, line.length) error:nil]) {
+        if (newlinesBefore > 0 && [line isMatchedByRegex:@"^(INT|EXT|EST|(I|INT)\\.?\\/(E|EXT)\\.?)[\\.\\-\\s][^\\n]+$" options:RKLCaseless inRange:NSMakeRange(0, line.length) error:nil]) {
             newlinesBefore = 0;
             NSString *sceneNumber = nil;
             NSString *text = nil;
