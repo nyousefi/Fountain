@@ -21,7 +21,7 @@
 //  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 //  IN THE SOFTWARE.
 //
-
+#import <Foundation/NSString.h>
 #import "FountainRegexes.h"
 
 NSString * const UNIVERSAL_LINE_BREAKS_PATTERN  = @"\\r\\n|\\r|\\n";

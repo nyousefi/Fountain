@@ -1,5 +1,5 @@
 //
-//  FNPaginator.h
+//  FNHTMLScript.h
 //
 //  Copyright (c) 2012-2013 Nima Yousefi & John August
 //
@@ -23,6 +23,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
+
 
 #if TARGET_OS_IPHONE
     #define QUQFont UIFont
@@ -30,21 +36,16 @@
     #define QUQFont NSFont
 #endif
 
-@class FNScript, FNElement;
+@class FNScript;
 
-@interface FNPaginator : NSObject
+@interface FNHTMLScript : NSObject
 
-@property (nonatomic, readonly) NSUInteger numberOfPages;
+@property (strong, nonatomic) QUQFont *font;
+@property (strong, nonatomic) FNScript *script;
 
 - (id)initWithScript:(FNScript *)aScript;
-- (void)paginate;
-- (void)paginateForSize:(CGSize)pageSize;
-- (NSArray *)pageAtIndex:(NSUInteger)index;
 
-// Helper methods
-+ (NSInteger)spaceBeforeForElement:(FNElement *)element;
-+ (NSInteger)leftMarginForElement:(FNElement *)element;
-+ (NSInteger)widthForElement:(FNElement *)element;
-+ (NSInteger)heightForString:(NSString *)string font:(QUQFont *)font maxWidth:(NSInteger)maxWidth lineHeight:(NSInteger)lineHeight;
+- (NSString *)html;
+- (NSString *)htmlClassForType:(NSString *)elementType;
 
 @end
