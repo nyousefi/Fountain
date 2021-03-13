@@ -14,7 +14,7 @@ For more details on Fountain see http://fountain.io.
 
 To encourage and ease integration of Fountain into your own apps we're making our own Fountain code available to you under a permissive MIT license. The code was designed for our own use, so your mileage may vary, but we're hoping this will at least help you get going with Fountain.
 
-The Xcode project includes files to read and write Fountain files, and stores the file in a fairly generic data model. If this model is insufficent for your needs, or you have your own model you'd like to use, we recommend using a converter to bridge the two models.
+The Xcode project includes files to read and write Fountain files, and stores the file in a fairly generic data model. If this model is insufficient for your needs, or you have your own model you'd like to use, we recommend using a converter to bridge the two models.
 
 One important note: we do not deal with text styling (bold, italic, underline, etc) in the parser or data model. We retain the styling and pass it along for downstream use. That is, whatever is supposed to display or print the Fountain file should handle text styling and clean up of the styling markup. We think that's just easier on everyone. We've included regular expressions for text styling, in case you need them.
 
