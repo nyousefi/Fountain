@@ -82,4 +82,4 @@ Stu and John discovered that they were simultaneously working on similar text-ba
 
 ### Fountain Code
 
-The code included here was developed by Nima Yousefi and John August, with copious emotional and spiritual support by Ryan Nelson and Stuart Friedel. However, all invectives should be directly solely at Nima Yousefi (don't worry, he has it coming).
+The code included here was developed by Nima Yousefi and John August, with copious emotional and spiritual support by Ryan Nelson and Stuart Friedel. However, all invectives should be directed solely at Nima Yousefi (don't worry, he has it coming).
